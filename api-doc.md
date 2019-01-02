@@ -17,7 +17,7 @@
 **example**
 
 
-```text
+```json
 {
     "status": "success",
     "code": 200,
@@ -82,3 +82,61 @@
     }
 }
 ```
+
+# 系统设置接口
+## 系统设置获取
+
+### 地址：/api/admin/setting
+
+**请求方式：GET**
+
+**Parameter: None**
+
+**Example:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "AliyunSmsAccessKeyId": "sdfdsfasdf",
+            "AliyunSmsAccessKeySecret": "sdfdsfasdf",
+            "AliyunVideoAccessKeyId": "sdfdsfasdf",
+            "AliyunVideoAccessKeySecret": "sdfdsfasdf",
+            "AliyunSmsTemplateSignup": "sdfdsfasdf",
+            "AliyunSmsTemplateChangePassword": "sdfdsfasdf",
+            "AliyunSmsTemplateForgetPassword": "sdfdsfasdf",
+            "AliyunVideoTemplateGroupId": "sdfdsfasdf",
+            "UserAgreement": "sdfdsfasdf",
+            "MobileBanana": [
+                {
+                    "image": "http://video.test/a.jpg",
+                    "title": "sdf",
+                    "content": "sdfasdf"
+                },
+                {
+                    "image": "http://video.test/a.jpg",
+                    "title": "sdf",
+                    "content": "sdfasdf"
+                }
+            ]
+        }
+    }
+}
+```
+
+```text
+'AliyunSmsAccessKeyId', // 阿里云子帐号短信 ak
+'AliyunSmsAccessKeySecret', // 阿里云子帐号短信 as
+'AliyunVideoAccessKeyId', // 阿里云子帐号视频点播 ak
+'AliyunVideoAccessKeySecret', // 阿里云子帐号视频点播 as
+'AliyunSmsTemplateSignup', // 用户注册短信模板id
+'AliyunSmsTemplateChangePassword', // 更改密码短信模板id
+'AliyunSmsTemplateForgetPassword', // 找回密码短信模板id
+'AliyunVideoTemplateGroupId', // 阿里云视频转码模板id
+'UserAgreement', // 用户协议
+'MobileBanana' // 轮播图
+```
+
