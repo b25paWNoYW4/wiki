@@ -197,7 +197,7 @@
 | contact | integer | required | 律师联系方式（手机） |
 | avatar | string | required | 律师头像 |
 | introduction | html | optional | 律师介绍 |
-| order | integer | optional | 排序 |
+~~| order | integer | optional | 排序 |~~
 | wechat | string | optional | 律师微信号 |
 | skill | string | optional | 律师擅长技能 |
 
@@ -268,6 +268,93 @@
             "to": 1,
             "total": 1
         }
+    }
+}
+```
+
+# 文章资讯接口
+## 文章资讯创建
+
+### 地址：/api/admin/article
+
+**请求方式：POST**
+
+**Parameter**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| title | string | required | 文章标题 |
+~~| subtitle | string | optional | 文章副标题 |~~
+| thumbnail | string | required |文章封面图 |
+| read | integer | required | 文章浏览量 |
+| content | html | optional | 文章内容 |
+~~| order | integer | optional | 排序 |~~
+
+
+**Example-Response:**
+```text
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 资讯浏览记录获取
+
+### 地址：/api/admin/article/view/record
+
+**请求方式：GET**
+
+**Parameter**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 分页数据条数 |
+| title | string | optional | 文章标题 |
+| use_name | string | optional | 用户姓名 |
+
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "article_id": 1,
+                "title": "三大",
+                "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "user_name": "123",
+                "view_at": "2018-12-27 15:03:36",
+                "article": {
+                    "id": 1,
+                    "title": "王二狗1",
+                    "subtitle": "我是恩的萨1"
+                },
+                "user": {
+                    "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "name": "test"
+                }
+            }
+        ],
+        "first_page_url": "http://video.test/api/admin/article/view/record?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://video.test/api/admin/article/view/record?page=1",
+        "next_page_url": null,
+        "path": "http://video.test/api/admin/article/view/record",
+        "per_page": "15",
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
     }
 }
 ```
