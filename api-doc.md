@@ -149,6 +149,8 @@
 
 **Parameter：**
 
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
 | name | string | optional | 用户姓名 |
 | password | string | optional | 密码 |
 | password_confirm | string | required_if: password | 密码确认 |
@@ -256,6 +258,8 @@
 
 **Parameter：**
 
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
 | name | string | optional | 用户姓名1-20位 |
 | password | string | optional | 密码 5-32位|
 | password_confirm | string | required_if: password | 密码确认 |
@@ -283,6 +287,8 @@
 
 **Parameter：**
 
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
 | `{`user`}` | string | required | 用户id |
 | name | string | optional | 用户姓名1-20位 |
 | password | string | optional | 密码 5-32位|
@@ -311,6 +317,8 @@
 
 **Parameter：**
 
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
 | `{`user`}` | string | required | 用户id |
 
 **Example-Response:**
