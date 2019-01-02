@@ -147,9 +147,7 @@
 
 **请求方式：POST**
 
-
-**Parameter: **
-
+**Parameter：**
 
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
