@@ -1,6 +1,172 @@
 <!-- TITLE: Api Doc -->
 <!-- SUBTITLE: A quick summary of Api Doc -->
 
+
+
+# 系统相关接口
+## 用户菜单获取
+### 接口地址：/api/admin/menu
+
+**请求方式 GET**
+
+**Parameter：None**
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": [
+        {
+            "id": 1,
+            "parent_id": 0,
+            "text": "用户管理",
+            "icon": "test-icon",
+            "link": "test-link",
+            "permissions": null,
+            "children": [
+                {
+                    "id": 2,
+                    "parent_id": 1,
+                    "text": "app用户管理",
+                    "icon": "test-icon",
+                    "link": "test-link",
+                    "permissions": [
+                        "admin.mobileUser.index",
+                        "admin.mobileUser.update"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "parent_id": 1,
+                    "text": "用户认证管理",
+                    "icon": "test-icon",
+                    "link": "test-link",
+                    "permissions": [
+                        "admin.order.index",
+                        "admin.order.confirm"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "parent_id": 0,
+            "text": "聊天系统",
+            "icon": "test-icon",
+            "link": "test-link",
+            "permissions": null,
+            "children": [
+                {
+                    "id": 9,
+                    "parent_id": 7,
+                    "text": "客服系统",
+                    "icon": "test-icon",
+                    "link": "test-link",
+                    "permissions": [
+                        "admin.message.unRead",
+                        "admin.message.getUnRead",
+                        "admin.message.send",
+                        "admin.message.history"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+## 系统用户登录
+### 接口地址：/api/admin/login
+
+**请求方式 POST**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| phone | integer | required | 帐号 |
+| password | string | required | 密码 |
+
+*当用户角色为客服时，会返回一个csomer_token，这个聊天会用到的*
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "token_type": "Bearer",
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImE0YTM4Y2YwODZiZGI3YTZmNmY5YTU0Nzk2MWQ2ZDUwNjQyZWMxY2JhZGNkZGQwMTA4ZmE1MmI2MDgzY2I0NWM3ZmJmNzE4NWM3NWU1NTU4In0.eyJhdWQiOiI3ZGMxZTlmMC1lMTQzLTQwNWItODY0Ni00MzVjNjgwNjYyYjMiLCJqdGkiOiJhNGEzOGNmMDg2YmRiN2E2ZjZmOWE1NDc5NjFkNmQ1MDY0MmVjMWNiYWRjZGRkMDEwOGZhNTJiNjA4M2NiNDVjN2ZiZjcxODVjNzVlNTU1OCIsImlhdCI6MTU0NjM5ODQwNSwibmJmIjoxNTQ2Mzk4NDA1LCJleHAiOjE1Nzc5MzQ0MDUsInN1YiI6IjUxY2Q4YmVkLTk4NGQtNDc4ZS05YWYwLTI4ZmU3ZDMyMmJkYyIsInNjb3BlcyI6W119.WOoy9XsriSiwXjyLwRBED5hlnb8eICnPb93PE4vTAuDuY56TXqiQEwBo-Q4ANqLaL2E0EMrBBA8m-cppo2MXVhGIJs75IILoHHnG-pK0bXM7uyA8MHOrocepYsrVPrcJDwiqW5U6hMIWeyIc6fTZkQDDzKkYAcQudUSQTQhLsEtdMpoy0YgHHgoGxvVLJbdW2Vqej9_fjs2FZbkF8c8sb6dOSeGzmna3Wt70W2BR-d39xoGwG089EpbK9IwMx1yr9rc6gi1Me5Q_4IvUgMVaoTONzXonZVsiQzJcVfr2a2ToZ4fX_ov8W2-D_v6Q88-IjauU_opnjBJ3ITzaZU_8olqu2uFD7cYUUmv08rR0ROtfpsez5zTGGlqLeiQBMOEIMtQgWj4Aj0bdu991dl64O_Br9ygxYk7SxbnZfLjoC28SNkDk4lwT3EPBG__j0_fLY3Aj73XMGfZPqTgN6DLTDUUJgzxoh89WLkOu5O3_C6fAX7cAz9ovWl0ghQKXHmlrfzRx-R-0fv8poYVEebHGE21oyuMkW_dgN27IQSCfDHnDrH8OJRbgpbCuy0_-mHLPhBSAMTgCFC0qotNLlpOsGtslo_oJTPbAbWk3M9srZ_nl6nk13yqL3Z7Oh3sr8PfRKtibRql5WMpJgHYwWYsLZjSdMMwnNA6v00RWU-mqra0",
+            "user": {
+                "name": "Administrator",
+                "phone": "18888888888",
+                "avatar": "http://video.test/images/user/default.png",
+                "gender": 1,
+                "role": {
+                    "id": 1,
+                    "name": "客服"
+                },
+                "customer_token": null
+            }
+        }
+    }
+}
+```
+
+## 用户个人信息获取
+### 接口地址：/api/admin/user/profile
+
+**请求方式 GET**
+
+**Parameter：None**
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": {
+        "id": "3b0e8842-ab2f-4e08-9a7a-4aa17cc4de96",
+        "name": "王二狗2",
+        "phone": "15882219670",
+        "avatar": "http://video.test/images/user/default.png",
+        "gender": 1,
+        "role": null,
+        "customer_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjBjNGI0OWU4MzU2ZDZkZTZhOThiY2U5Y2VkNGY2ZjhhYWU2MGQ3OWEwZDZmN2MyOTkyODAxMDk2Y2RiMTQ1Y2JmZWNmYTNhNGU3ZjFkNDMzIn0.eyJhdWQiOiI3ZGMxZTlmMC1lMTQzLTQwNWItODY0Ni00MzVjNjgwNjYyYjMiLCJqdGkiOiIwYzRiNDllODM1NmQ2ZGU2YTk4YmNlOWNlZDRmNmY4YWFlNjBkNzlhMGQ2ZjdjMjk5MjgwMTA5NmNkYjE0NWNiZmVjZmEzYTRlN2YxZDQzMyIsImlhdCI6MTU0NTcxMDYxNSwibmJmIjoxNTQ1NzEwNjE1LCJleHAiOjE1NzcyNDY2MTUsInN1YiI6ImRiM2NjZDQyLTJiN2QtNGY2Yy05NDFiLWNiNWU1MTg2ZDIzZiIsInNjb3BlcyI6W119.lLn_VIux0XWLfqeBNVI6sQrGjTkueWNJA9Cp7BGwiyyh05Rhc3WSdIzjYk71laDI1L0g9hJduSNx27zSvTOJqJFJA1snfmd31TdgM0VwlFj2GcCtL9csVkTa_H430UvD5ns1eWqVDUUUL8JapFrmmU1HbmDc2-SWUo9kQnElSL4e7eDDCi7xJX_RhyvEjdOv6bTUbat5uLUB-Nizrm7c0pPrE7mboFiCZA83qdPiwPOWZ7ThSMouDtII8HP2jBYOe1JKkd8-9DIl_MqU_gx_LQLX0ZjYnE8ZvzAXgBmlI1unn2hb-l6xyZOEecoFZgArc4jMuPfJ319zwAGy4X7eLcAiS4upKuz32SWgkOu1trVX25bHUjVUxo09bE-7lkh01ABZrlPoENCk6gV2NWzYASTJXSoi6bd0MWSdClgCX15G4_Kdr5ssjaRR6WYs0u5_bbZWHkHy2kwxiG4vBiJTrPITC9L-1D8eTfdrP4UYm56O4t7MDi6n_CTn5w5im9Slqrz47OSjJs-t6185Pj5Pw-NdQcEmkC8v58l3HnTyK0NqPeDI5Bm7_2h6dEBUEP1w4BLbwZfTxgwJ-G933JKtKBc5XYM4mqer03DHwEVuEypnCeNJ3Uj4OTD4yJnBHYiJJwE9aiD8X2aQAfNCeaincQnGU9zby3le2cFo8Q-uuqA"
+    }
+}
+```
+
+## 用户个人信息修改
+### 接口地址：/api/admin/user/profile
+
+**请求方式 POST**
+
+**Parameter：**
+
+| name | string | optional | 用户姓名 |
+| password | string | optional | 密码 |
+| password_confirm | string | required_if: password | 密码确认 |
+| phone | integer | optional | 手机号 |
+| avatar | string | optional | 用户头像 |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 # 用户管理接口
 ## 用户列表获取
 ### 接口地址：/api/admin/user
@@ -14,7 +180,7 @@
 | id | string | optional | 用户ID |
 | phone | integer | optional | 用户手机 |
 
-**example**
+**Example-Response:**
 
 
 ```json
@@ -83,6 +249,82 @@
 }
 ```
 
+## 系统用户创建
+### 接口地址：/api/admin/user
+
+**请求方式 POST**
+
+**Parameter：**
+
+| name | string | optional | 用户姓名1-20位 |
+| password | string | optional | 密码 5-32位|
+| password_confirm | string | required_if: password | 密码确认 |
+| phone | integer | optional | 手机号 |
+| avatar | string | optional | 用户头像 |
+| role_id | integer | optional | 角色id |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 系统用户更新
+### 接口地址：/api/admin/user/{user}
+
+**请求方式 POST**
+
+**Parameter：**
+
+| `{`user`}` | string | required | 用户id |
+| name | string | optional | 用户姓名1-20位 |
+| password | string | optional | 密码 5-32位|
+| password_confirm | string | required_if: password | 密码确认 |
+| phone | integer | optional | 手机号 |
+| avatar | string | optional | 用户头像 |
+| role_id | integer | optional | 角色id |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 系统用户删除
+### 接口地址：/api/admin/user/{user}
+
+**请求方式 DELETE**
+
+**Parameter：**
+
+| `{`user`}` | string | required | 用户id |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 # APP用户管理接口
 ## app用户列表获取
 ### 接口地址：/api/admin/mobile/user
