@@ -777,6 +777,110 @@
     }
 }
 ```
+
+# 用户认证管理接口
+## 用户管理列表获取
+### 接口地址：/api/admin/order
+
+**请求方式 GET**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 每页条数 |
+| id | string | optional | orderID |
+
+**Example-Response:**
+
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "order_no": "12312412",
+                    "status": 1,
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "company_id": 1,
+                    "state": 0,
+                    "order_completed_at": null,
+                    "created_at": "2018-12-29 17:27:44",
+                    "updated_at": "2018-12-29 17:37:52",
+                    "company": {
+                        "id": 1,
+                        "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "company": "公司名称",
+                        "industry": "IT行业",
+                        "owner": "所有人",
+                        "address": "九里堤",
+                        "certificates": [
+                            "http://video.test/a.jpg"
+                        ],
+                        "verified": 1,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "note": null,
+                        "created_at": "2018-12-29 17:30:31",
+                        "updated_at": "2018-12-29 17:37:52"
+                    },
+                    "user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉"
+                    }
+                }
+            ],
+            "first_page_url": "http://video.test/api/admin/order?page=1",
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://video.test/api/admin/order?page=1",
+            "next_page_url": null,
+            "path": "http://video.test/api/admin/order",
+            "per_page": 15,
+            "prev_page_url": null,
+            "to": 1,
+            "total": 1
+        }
+    }
+}
+```
+*参数解释*
+
+```text
+工单状态
+status = 0 => 待处理
+status = 1 => 已完成
+工单处理结果
+state = 0 => 审核未处理
+state = 1 => 审核通过
+state = 2 => 审核不通过
+```
+## 用户认证审核
+### 接口地址：/api/admin/order/{order}
+
+**请求方式 PATCH**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`order`}` | string | rquired | orderid |
+| state | integer | required | 1审核通过2审核不通过 |
+
+**Example-Response:**
+
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 # 系统设置接口
 ## 系统设置获取
 
@@ -1078,7 +1182,222 @@
     }
 }
 ```
+# 视频管理接口
+## 视频信息创建
 
+### 地址：/api/admin/video
+
+**请求方式：POST**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 视频名称 |
+| desc | string | required | 视频描述 |
+| read | integer | required | 浏览量 |
+| videoId | string | required | 视频videoId |
+| poster | string | optional | 视频封面 |
+
+
+**Example-Response:**
+```text
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 视频信息列表
+
+### 地址：/api/admin/video
+
+**请求方式：GET**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | optional | 视频名 |
+| id | integer | optional | 视频id |
+| limit | integer | optional | 分页数据数 |
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "doge1",
+                    "desc": "视频描述1",
+                    "read": 1112,
+                    "videoId": "lsdflksdjfljsadlkfjaslkdjf1",
+                    "poster": "http://video.test/sdf1.jpg",
+                    "order": 12,
+                    "note": "dsfsdf2",
+                    "created_at": "2018-12-27 18:01:00",
+                    "updated_at": "2018-12-27 18:03:18"
+                },
+                {
+                    "id": 2,
+                    "name": "doge1",
+                    "desc": "视频描述1",
+                    "read": 1112,
+                    "videoId": null,
+                    "poster": "http://video.test/sdf1.jpg",
+                    "order": 12,
+                    "note": "dsfsdf2",
+                    "created_at": "2018-12-27 17:57:14",
+                    "updated_at": "2018-12-27 18:00:46"
+                },
+                {
+                    "id": 3,
+                    "name": "doge1",
+                    "desc": "视频描述1",
+                    "read": 1112,
+                    "videoId": null,
+                    "poster": "http://video.test/sdf1.jpg",
+                    "order": 12,
+                    "note": "dsfsdf2",
+                    "created_at": "2018-12-27 18:01:16",
+                    "updated_at": "2018-12-27 18:01:16"
+                }
+            ],
+            "first_page_url": "http://video.test/api/admin/video?page=1",
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://video.test/api/admin/video?page=1",
+            "next_page_url": null,
+            "path": "http://video.test/api/admin/video",
+            "per_page": 15,
+            "prev_page_url": null,
+            "to": 3,
+            "total": 3
+        }
+    }
+}
+```
+## 视频信息修改
+
+### 地址：/api/admin/video/{video}
+
+**请求方式：PATCH**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`video`}` | integer | required | 视频id |
+| name | string | required | 视频名称 |
+| desc | string | required | 视频描述 |
+| read | integer | required | 浏览量 |
+| videoId | string | required | 视频videoId |
+| poster | string | optional | 视频封面 |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+## 视频信息删除
+### 接口地址：/api/admin/video/{video}
+
+**请求方式 DELETE**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`video`}` | integer | required | 视频id |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 视频浏览记录获取
+
+### 地址：/api/admin/video/view/record
+
+**请求方式：GET**
+
+**Parameter**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 分页数据条数 |
+| name | string | optional | 视频名 |
+| use_name | string | optional | 用户姓名 |
+
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "video_id": 1,
+                    "name": "三大",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "user_name": "123",
+                    "view_at": "2018-12-27 17:23:37",
+                    "video": {
+                        "id": 1,
+                        "name": "doge1",
+                        "desc": "视频描述1"
+                    },
+                    "user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉"
+                    }
+                }
+            ],
+            "first_page_url": "http://video.test/api/admin/video/view/record?page=1",
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://video.test/api/admin/video/view/record?page=1",
+            "next_page_url": null,
+            "path": "http://video.test/api/admin/video/view/record",
+            "per_page": "15",
+            "prev_page_url": null,
+            "to": 1,
+            "total": 1
+        }
+    }
+}
+```
 # 文章资讯接口
 ## 文章资讯创建
 
