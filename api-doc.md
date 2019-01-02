@@ -333,6 +333,355 @@
     }
 }
 ```
+
+# 系统角色接口
+## 角色列表获取
+### 接口地址：/api/admin/role
+
+**请求方式 GET**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 分页数据数 |
+| id | integer | optional | 角色id |
+
+**Example-Response:**
+
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "name": "客服",
+                "guard_name": "admin",
+                "permissions": [
+                    {
+                        "id": 1,
+                        "name": "APP端用户获取"
+                    },
+                    {
+                        "id": 2,
+                        "name": "APP端用户信息修改"
+                    },
+                    {
+                        "id": 3,
+                        "name": "APP端用户认证列表获取"
+                    },
+                    {
+                        "id": 4,
+                        "name": "APP端用户认证审核"
+                    },
+                    {
+                        "id": 19,
+                        "name": "客服获取未读消息列表"
+                    },
+                    {
+                        "id": 20,
+                        "name": "客服获取具体未读消息"
+                    },
+                    {
+                        "id": 21,
+                        "name": "客服发送消息"
+                    },
+                    {
+                        "id": 22,
+                        "name": "客服获取历史聊天记录"
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http://video.test/api/admin/role?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://video.test/api/admin/role?page=1",
+        "next_page_url": null,
+        "path": "http://video.test/api/admin/role",
+        "per_page": 15,
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    }
+}
+```
+*参数为id时*
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": {
+        "id": 1,
+        "name": "客服",
+        "guard_name": "admin",
+        "permission_ids": [
+            1,
+            2,
+            3,
+            4,
+            19,
+            20,
+            21,
+            22
+        ]
+    }
+}
+```
+
+## 权限列表获取
+### 接口地址：/api/admin/permission
+
+**请求方式 GET**
+
+**Parameter：None**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "app用户管理": [
+                {
+                    "id": 1,
+                    "name": "APP端用户获取"
+                },
+                {
+                    "id": 2,
+                    "name": "APP端用户信息修改"
+                }
+            ],
+            "用户认证管理": [
+                {
+                    "id": 3,
+                    "name": "APP端用户认证列表获取"
+                },
+                {
+                    "id": 4,
+                    "name": "APP端用户认证审核"
+                }
+            ],
+            "律师团队管理": [
+                {
+                    "id": 5,
+                    "name": "系统律师团队列表获取"
+                },
+                {
+                    "id": 6,
+                    "name": "系统律师团队信息创建"
+                },
+                {
+                    "id": 7,
+                    "name": "系统律师团队信息更新"
+                },
+                {
+                    "id": 8,
+                    "name": "系统律师团队信息删除"
+                }
+            ],
+            "资讯文章管理": [
+                {
+                    "id": 9,
+                    "name": "系统资讯文章信息列表获取"
+                },
+                {
+                    "id": 10,
+                    "name": "系统资讯文章信息创建"
+                },
+                {
+                    "id": 11,
+                    "name": "系统资讯文章信息更新"
+                },
+                {
+                    "id": 12,
+                    "name": "系统资讯文章信息删除"
+                }
+            ],
+            "视频管理": [
+                {
+                    "id": 13,
+                    "name": "系统点播视频信息列表获取"
+                },
+                {
+                    "id": 14,
+                    "name": "系统点播视频信息创建"
+                },
+                {
+                    "id": 15,
+                    "name": "系统点播视频信息更新"
+                },
+                {
+                    "id": 16,
+                    "name": "系统点播视频信息删除"
+                }
+            ],
+            "聊天记录": [
+                {
+                    "id": 17,
+                    "name": "聊天系统信息记录列表获取"
+                },
+                {
+                    "id": 18,
+                    "name": "聊天历史记录删除"
+                }
+            ],
+            "客服系统": [
+                {
+                    "id": 19,
+                    "name": "客服获取未读消息列表"
+                },
+                {
+                    "id": 20,
+                    "name": "客服获取具体未读消息"
+                },
+                {
+                    "id": 21,
+                    "name": "客服发送消息"
+                },
+                {
+                    "id": 22,
+                    "name": "客服获取历史聊天记录"
+                }
+            ],
+            "系统用户管理": [
+                {
+                    "id": 23,
+                    "name": "系统用户消息列表获取"
+                },
+                {
+                    "id": 24,
+                    "name": "系统用户创建"
+                },
+                {
+                    "id": 25,
+                    "name": "系统用户信息更新"
+                },
+                {
+                    "id": 26,
+                    "name": "系统用户删除"
+                },
+                {
+                    "id": 27,
+                    "name": "系统角色获取"
+                }
+            ],
+            "系统角色管理": [
+                {
+                    "id": 27,
+                    "name": "系统角色获取"
+                },
+                {
+                    "id": 28,
+                    "name": "系统角色创建"
+                },
+                {
+                    "id": 29,
+                    "name": "系统角色更新"
+                },
+                {
+                    "id": 30,
+                    "name": "系统角色删除"
+                },
+                {
+                    "id": 31,
+                    "name": "系统权限获取"
+                }
+            ],
+            "系统设置管理": [
+                {
+                    "id": 32,
+                    "name": "系统设置获取"
+                },
+                {
+                    "id": 33,
+                    "name": "系统设置修改"
+                }
+            ]
+        }
+    }
+}
+```
+## 系统角色创建
+### 接口地址：/api/admin/role
+
+**请求方式 POST**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 角色名 |
+| permission_ids | array | required | 对应权限id|
+
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 系统角色更新
+### 接口地址：/api/admin/role/{role}
+
+**请求方式 POST**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 角色名 |
+| permission_ids | array | required | 对应权限id|
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 系统角色删除
+### 接口地址：/api/admin/role/{role}
+
+**请求方式 DELETE**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`role`}` | string | required | 角色id |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 # APP用户管理接口
 ## app用户列表获取
 ### 接口地址：/api/admin/mobile/user
