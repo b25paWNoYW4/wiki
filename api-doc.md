@@ -159,7 +159,7 @@
 
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
-| `{user}` | string | rquired | 用户id |
+| `{`user`}` | string | rquired | 用户id |
 | name | string | optional | 用户姓名 |
 | password | string | optional | 密码 |
 | password_confirm | string | required_if: password | 密码确认 |
