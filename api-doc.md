@@ -183,12 +183,91 @@
 ```
 
 # 律师接口
-## 系统设置获取
+## 律师信息创建
 
 ### 地址：/api/admin/lawyer
 
-**请求方式：GET**
+**请求方式：POST**
 
-**Parameter: **
+**Parameter： **
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 律师姓名 |
+| contact | integer | required | 律师联系方式（手机） |
+| avatar | string | required | 律师头像 |
+| introduction | html | optional | 律师介绍 |
+| order | integer | optional | 排序 |
+| wechat | string | optional | 律师微信号 |
+| skill | string | optional | 律师擅长技能 |
+
 
 **Example-Response:**
+```text
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 律师浏览记录获取
+
+### 地址：/api/admin/lawyer/view/record
+
+**请求方式：GET**
+
+**Parameter： **
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 分页数据条数 |
+| name | string | optional | 律师姓名 |
+| use_name | string | optional | 用户姓名 |
+
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "lawyer_id": 1,
+                    "name": "123",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "user_name": "123",
+                    "view_at": "2018-12-27 14:39:18",
+                    "lawyer": {
+                        "id": 1,
+                        "name": "王二狗3"
+                    },
+                    "user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉"
+                    }
+                }
+            ],
+            "first_page_url": "http://video.test/api/admin/lawyer/view/record?page=1",
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://video.test/api/admin/lawyer/view/record?page=1",
+            "next_page_url": null,
+            "path": "http://video.test/api/admin/lawyer/view/record",
+            "per_page": "15",
+            "prev_page_url": null,
+            "to": 1,
+            "total": 1
+        }
+    }
+}
+```
