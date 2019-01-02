@@ -883,7 +883,7 @@
 
 **请求方式：POST**
 
-**Parameter**
+**Parameter:**
 
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
@@ -897,6 +897,120 @@
 
 **Example-Response:**
 ```text
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 律师信息列表
+
+### 地址：/api/admin/lawyer
+
+**请求方式：GET**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | optional | 律师姓名 |
+| id | integer | optional | 律师id |
+| limit | integer | optional | 分页数据数 |
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "name": "王二狗3",
+                "contact": "15882219670",
+                "avatar": "http://localhost/it/u=2234563230,4026324596&fm=26&gp=0.jpg",
+                "wechat": null,
+                "introduction": "secret",
+                "order": 1,
+                "skill": "遗产纠纷、婚姻纠纷",
+                "created_at": "2018-12-27 11:55:41",
+                "updated_at": "2018-12-27 11:57:15"
+            },
+            {
+                "id": 2,
+                "name": "王二狗4",
+                "contact": "15882219671",
+                "avatar": "http://localhost/it/u=2234563230,4026324596&fm=26&gp=0.jpg",
+                "wechat": null,
+                "introduction": "撒地方",
+                "order": 2,
+                "skill": "吹水",
+                "created_at": "2018-12-27 11:59:15",
+                "updated_at": "2018-12-27 11:59:15"
+            }
+        ],
+        "first_page_url": "http://video.test/api/admin/lawyer?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://video.test/api/admin/lawyer?page=1",
+        "next_page_url": null,
+        "path": "http://video.test/api/admin/lawyer",
+        "per_page": 15,
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    }
+}
+```
+## 律师信息修改
+
+### 地址：/api/admin/lawyer/{lawyer}
+
+**请求方式：PATCH**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`lawyer`}` | integer | required | 律师id |
+| name | string | required | 律师姓名 |
+| contact | integer | required | 律师联系方式（手机） |
+| avatar | string | required | 律师头像 |
+| introduction | html | optional | 律师介绍 |
+| wechat | string | optional | 律师微信号 |
+| skill | string | optional | 律师擅长技能 |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+## 律师信息删除
+### 接口地址：/api/admin/lawyer/{lawyer}
+
+**请求方式 DELETE**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`lawyer`}` | integer | required | 律师id |
+
+**Example-Response:**
+
+```json
 {
     "status": "success",
     "code": 200,
@@ -984,6 +1098,135 @@
 
 **Example-Response:**
 ```text
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+## 文章资讯列表
+
+### 地址：/api/admin/article
+
+**请求方式：GET**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| title | string | optional | 文章标题 |
+| id | integer | optional | 文章id |
+| limit | integer | optional | 分页数据数 |
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "title": "王二狗1",
+                "subtitle": "我是恩的萨1",
+                "type": 0,
+                "thumbnail": "http://localhost/it/u=2234563230,4026324596&fm=26&gp=0.jpg",
+                "read": 1031,
+                "content": "遗产纠纷1",
+                "order": 1,
+                "index_display": 0,
+                "note": null,
+                "created_at": "2018-12-27 12:11:09",
+                "updated_at": "2018-12-27 12:12:17"
+            },
+            {
+                "id": 2,
+                "title": "王二狗3",
+                "subtitle": "我是恩的萨3",
+                "type": 0,
+                "thumbnail": "http://localhost/it/u=2234563230,4026324596&fm=26&gp=0.jpg",
+                "read": 103,
+                "content": "遗产纠纷",
+                "order": 0,
+                "index_display": 0,
+                "note": null,
+                "created_at": "2018-12-27 12:11:47",
+                "updated_at": "2018-12-27 12:11:47"
+            },
+            {
+                "id": 3,
+                "title": "王二狗1",
+                "subtitle": "我是恩的萨1",
+                "type": 0,
+                "thumbnail": "http://localhost/it/u=2234563230,4026324596&fm=26&gp=0.jpg",
+                "read": 1031,
+                "content": "遗产纠纷1",
+                "order": 1,
+                "index_display": 0,
+                "note": null,
+                "created_at": "2018-12-27 12:12:50",
+                "updated_at": "2018-12-27 12:12:50"
+            }
+        ],
+        "first_page_url": "http://video.test/api/admin/article?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://video.test/api/admin/article?page=1",
+        "next_page_url": null,
+        "path": "http://video.test/api/admin/article",
+        "per_page": 15,
+        "prev_page_url": null,
+        "to": 3,
+        "total": 3
+    }
+}
+```
+## 文章资讯修改
+
+### 地址：/api/admin/article/{article}
+
+**请求方式：PATCH**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`article`}` | integer | required | 文章id |
+| title | string | required | 文章标题 |
+| thumbnail | string | required |文章封面图 |
+| read | integer | required | 文章浏览量 |
+| content | html | optional | 文章内容 |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+## 文章资讯删除
+### 接口地址：/api/admin/article/{article}
+
+**请求方式 DELETE**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`article`}` | integer | required | 文章id |
+
+**Example-Response:**
+
+```json
 {
     "status": "success",
     "code": 200,
