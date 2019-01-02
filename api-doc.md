@@ -92,7 +92,7 @@
 
 **Parameter: None**
 
-**Example:**
+**Example-Response:**
 
 ```json
 {
@@ -127,6 +127,7 @@
 }
 ```
 
+**参数注释：**
 ```text
 'AliyunSmsAccessKeyId', // 阿里云子帐号短信 ak
 'AliyunSmsAccessKeySecret', // 阿里云子帐号短信 as
@@ -138,5 +139,46 @@
 'AliyunVideoTemplateGroupId', // 阿里云视频转码模板id
 'UserAgreement', // 用户协议
 'MobileBanana' // 轮播图
+```
+
+## 系统设置更改
+
+### 地址：/api/admin/setting
+
+**请求方式：POST**
+
+**Parameter: **
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| AliyunSmsAccessKeyId | string | required | 阿里云子帐号短信AK |
+| AliyunSmsAccessKeySecret | string | required | 阿里云子帐号短信AS |
+| AliyunVideoAccessKeyId | string | required | 阿里云子帐号视频点播AK |
+| AliyunVideoAccessKeySecret | string | required | 阿里云子帐号视频点播AS |
+| AliyunSmsTemplateChangePassword | string | required | 更改密码短信模板id |
+| AliyunSmsTemplateSignup | string | required | 用户注册短信模板id |
+| AliyunSmsTemplateForgetPassword | string | required | 找回密码短信模板id |
+| AliyunVideoTemplateGroupId | string | required | 阿里云视频转码模板id |
+| UserAgreement | html | required | 用户协议 |
+| MobileBanana | array | required | 轮播图 |
+
+*每个轮播图设置项有三个参数，分别为：image, title, content 如下示例*
+
+**Example-Request:**
+
+```json
+{"AliyunSmsAccessKeyId":"sdfdsfasdf","AliyunSmsAccessKeySecret":"sdfdsfasdf","AliyunVideoAccessKeyId":"sdfdsfasdf","AliyunVideoAccessKeySecret":"sdfdsfasdf","AliyunSmsTemplateSignup":"sdfdsfasdf","AliyunSmsTemplateChangePassword":"sdfdsfasdf","AliyunSmsTemplateForgetPassword":"sdfdsfasdf","AliyunVideoTemplateGroupId":"sdfdsfasdf","UserAgreement":"sdfdsfasdf","MobileBanana":[{"image":"a.jpg","title":"sdf","content":"sdfasdf"},{"image":"a.jpg","title":"sdf","content":"sdfasdf"}]}
+```
+
+**Example-Response:**
+```text
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
 ```
 
