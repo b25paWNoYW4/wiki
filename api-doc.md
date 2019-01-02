@@ -197,7 +197,6 @@
 | contact | integer | required | 律师联系方式（手机） |
 | avatar | string | required | 律师头像 |
 | introduction | html | optional | 律师介绍 |
-~~| order | integer | optional | 排序 |~~
 | wechat | string | optional | 律师微信号 |
 | skill | string | optional | 律师擅长技能 |
 
@@ -284,11 +283,9 @@
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
 | title | string | required | 文章标题 |
-~~| subtitle | string | optional | 文章副标题 |~~
 | thumbnail | string | required |文章封面图 |
 | read | integer | required | 文章浏览量 |
 | content | html | optional | 文章内容 |
-~~| order | integer | optional | 排序 |~~
 
 
 **Example-Response:**
