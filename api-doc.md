@@ -182,3 +182,13 @@
 }
 ```
 
+# 律师接口
+## 系统设置获取
+
+### 地址：/api/admin/lawyer
+
+**请求方式：GET**
+
+**Parameter: **
+
+**Example-Response:**
