@@ -83,6 +83,101 @@
 }
 ```
 
+# APP用户管理接口
+## app用户列表获取
+### 接口地址：/api/admin/mobile/user
+
+**请求方式 GET**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 每页条数 |
+| name | string | optional | 用户姓名 |
+| id | string | optional | 用户ID |
+| phone | integer | optional | 用户手机 |
+| gender | integer | optional | 0女1男 |
+| verified | integer | optional | 0未认证1认证 |
+
+**Example-Response:**
+
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "name": "必填王鹅肉",
+                    "phone": "18888888880",
+                    "avatar": "http://video.test/images/user/default.png",
+                    "gender": 1,
+                    "verified": true,
+                    "verified_at": "2018-12-29 00:00:00",
+                    "created_at": "2018-12-19 17:46:55",
+                    "company": {
+                        "id": 1,
+                        "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "company": "公司名称",
+                        "industry": "IT行业",
+                        "owner": "所有人",
+                        "address": "九里堤",
+                        "certificates": [
+                            "http://video.test/a.jpg"
+                        ],
+                        "verified": 1,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "note": null,
+                        "created_at": "2018-12-29 17:30:31",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                }
+            ],
+            "first_page_url": "http://video.test/api/admin/mobile/user?page=1",
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://video.test/api/admin/mobile/user?page=1",
+            "next_page_url": null,
+            "path": "http://video.test/api/admin/mobile/user",
+            "per_page": 15,
+            "prev_page_url": null,
+            "to": 1,
+            "total": 1
+        }
+    }
+}
+```
+
+## app用户信息修改
+### 接口地址：/api/admin/mobile/user/{user}
+
+**请求方式 PATCH**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| {user} | string | rquired | 用户id |
+| name | string | optional | 用户姓名 |
+| password | string | optional | 密码 |
+| password_confirm | string | required_if: password | 密码确认 |
+| verified | integer | optional | 0未认证1认证 |
+
+**Example-Response:**
+
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 # 系统设置接口
 ## 系统设置获取
 
