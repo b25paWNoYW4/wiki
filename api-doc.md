@@ -995,8 +995,569 @@ state = 2 => 审核不通过
 | content | string | optional | 聊天内容 |
 
 **Example-Response:**
-```text
-施工中
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 41,
+                    "chat_no": "20181224000002",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 1,
+                    "message_type": 0,
+                    "content": "聊天内容",
+                    "created_at": "2018-12-24 15:12:28",
+                    "updated_at": "2018-12-24 15:43:04",
+                    "state": 1,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 40,
+                    "chat_no": "20181224000001",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "聊天内容",
+                    "created_at": "2018-12-24 13:37:56",
+                    "updated_at": "2018-12-24 13:46:14",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 39,
+                    "chat_no": "20181220000007",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "聊天内容",
+                    "created_at": "2018-12-20 16:38:28",
+                    "updated_at": "2018-12-24 13:46:14",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 38,
+                    "chat_no": "20181220000006",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "test124324424",
+                    "created_at": "2018-12-20 14:09:57",
+                    "updated_at": "2018-12-24 13:46:14",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 37,
+                    "chat_no": "20181220000005",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 1,
+                    "message_type": 0,
+                    "content": "FSGDASDGsdf1234242",
+                    "created_at": "2018-12-20 14:09:54",
+                    "updated_at": "2018-12-24 15:43:04",
+                    "state": 1,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 36,
+                    "chat_no": "20181220000006",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "test124324",
+                    "created_at": "2018-12-20 14:09:43",
+                    "updated_at": "2018-12-24 13:46:14",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 35,
+                    "chat_no": "20181220000005",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 1,
+                    "message_type": 0,
+                    "content": "FSGDASDGsdf123",
+                    "created_at": "2018-12-20 14:09:38",
+                    "updated_at": "2018-12-24 15:43:04",
+                    "state": 1,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 34,
+                    "chat_no": "20181220000006",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "test124",
+                    "created_at": "2018-12-20 14:09:28",
+                    "updated_at": "2018-12-24 13:46:14",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 33,
+                    "chat_no": "20181220000005",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 1,
+                    "message_type": 0,
+                    "content": "FSGDASDGsdf",
+                    "created_at": "2018-12-20 14:09:18",
+                    "updated_at": "2018-12-24 15:43:04",
+                    "state": 1,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 32,
+                    "chat_no": "20181220000004",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 1,
+                    "message_type": 0,
+                    "content": "FSGDASDGsdf",
+                    "created_at": "2018-12-20 14:02:15",
+                    "updated_at": "2018-12-24 15:43:04",
+                    "state": 1,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 31,
+                    "chat_no": "20181220000005",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "test124",
+                    "created_at": "2018-12-20 14:02:03",
+                    "updated_at": "2018-12-24 13:46:14",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 30,
+                    "chat_no": "20181220000004",
+                    "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "type": 1,
+                    "message_type": 0,
+                    "content": "FSGDASDG",
+                    "created_at": "2018-12-20 13:58:03",
+                    "updated_at": "2018-12-24 15:43:04",
+                    "state": 1,
+                    "admin_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    },
+                    "mobile_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    }
+                },
+                {
+                    "id": 29,
+                    "chat_no": "20181220000003",
+                    "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "FSGDASDG",
+                    "created_at": "2018-12-20 10:23:06",
+                    "updated_at": "2018-12-20 10:23:06",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    },
+                    "mobile_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    }
+                },
+                {
+                    "id": 28,
+                    "chat_no": "20181220000003",
+                    "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "NIHAO",
+                    "created_at": "2018-12-20 10:22:12",
+                    "updated_at": "2018-12-20 10:22:12",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    },
+                    "mobile_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    }
+                },
+                {
+                    "id": 27,
+                    "chat_no": "20181220000003",
+                    "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "type": 0,
+                    "message_type": 0,
+                    "content": "dsfasdf",
+                    "created_at": "2018-12-20 10:21:52",
+                    "updated_at": "2018-12-20 10:21:52",
+                    "state": 0,
+                    "admin_user": {
+                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                        "name": "必填王鹅肉",
+                        "phone": "18888888880",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": true,
+                        "gender": 1,
+                        "type": 0,
+                        "verified_at": "2018-12-29 00:00:00",
+                        "created_at": "2018-12-19 17:46:55",
+                        "updated_at": "2018-12-29 17:53:30"
+                    },
+                    "mobile_user": {
+                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                        "name": "doge",
+                        "phone": "18888888888",
+                        "avatar": "http://video.test/images/user/default.png",
+                        "verified": false,
+                        "gender": 1,
+                        "type": 1,
+                        "verified_at": "2018-12-28 18:49:05",
+                        "created_at": "2018-12-07 11:02:15",
+                        "updated_at": "2018-12-07 11:02:15"
+                    }
+                }
+            ],
+            "first_page_url": "http://video.test/api/admin/message?page=1",
+            "from": 1,
+            "last_page": 3,
+            "last_page_url": "http://video.test/api/admin/message?page=3",
+            "next_page_url": "http://video.test/api/admin/message?page=2",
+            "path": "http://video.test/api/admin/message",
+            "per_page": 15,
+            "prev_page_url": null,
+            "to": 15,
+            "total": 41
+        }
+    }
+}
 ```
 
 ## 消息记录删除
@@ -1012,8 +1573,15 @@ state = 2 => 审核不通过
 | `{`message`}` | integer | required | 记录id |
 
 **Example-Response:**
-```text
-施工中
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
 ```
 # 客服聊天接口
 ## 未读消息获取
