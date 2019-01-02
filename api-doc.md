@@ -979,6 +979,42 @@ state = 2 => 审核不通过
     }
 }
 ```
+
+# 聊天记录管理接口
+## 消息列表获取
+
+### 地址：/api/admin/message
+
+**请求方式：GET**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| limit | integer | optional | 分页数据数 |
+| content | string | optional | 聊天内容 |
+
+**Example-Response:**
+```text
+施工中
+```
+
+## 消息记录删除
+
+### 地址：/api/admin/message/{message}
+
+**请求方式：DELETE**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`message`}` | integer | required | 记录id |
+
+**Example-Response:**
+```text
+施工中
+```
 # 客服聊天接口
 ## 未读消息获取
 
