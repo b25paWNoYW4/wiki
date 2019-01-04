@@ -15,6 +15,16 @@
 | limit | integer | optional | 分页数据数 |
 | content | string | optional | 聊天内容 |
 
+```text
+
+参数解释：
+chat_no:会话标号
+type => 0 系统客服发送给用户的消息
+type => 1 用户发送给客服的消息
+state => 消息接收者的已读未读状态，0未读1已读
+
+```
+
 **Example-Response:**
 ```json
 {
