@@ -630,6 +630,8 @@
 | user_id | string | required | 对应客服的id |
 | limit | string | required | 数据分页条数 |
 
+**示例返回结果待更新**
+
 **Example-Response:**
 ```json
 {
@@ -1161,5 +1163,156 @@
             "value": 6
         }
     ]
+}
+```
+## 获取具体未读消息
+
+### 地址：/api/user/message/unread
+
+**请求方式：GET**
+
+**Parameter:None**
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| user_id | string | required | 对应客服的id |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": [
+        {
+            "id": 31,
+            "chat_no": "20181220000005",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "type": 0,
+            "message_type": 0,
+            "content": "test124",
+            "created_at": "2018-12-20 14:02:03",
+            "updated_at": "2018-12-24 13:46:14",
+            "state": 0,
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 34,
+            "chat_no": "20181220000006",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "type": 0,
+            "message_type": 0,
+            "content": "test124",
+            "created_at": "2018-12-20 14:09:28",
+            "updated_at": "2018-12-24 13:46:14",
+            "state": 0,
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 36,
+            "chat_no": "20181220000006",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "type": 0,
+            "message_type": 0,
+            "content": "test124324",
+            "created_at": "2018-12-20 14:09:43",
+            "updated_at": "2018-12-24 13:46:14",
+            "state": 0,
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 38,
+            "chat_no": "20181220000006",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "type": 0,
+            "message_type": 0,
+            "content": "test124324424",
+            "created_at": "2018-12-20 14:09:57",
+            "updated_at": "2018-12-24 13:46:14",
+            "state": 0,
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 39,
+            "chat_no": "20181220000007",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "type": 0,
+            "message_type": 0,
+            "content": "聊天内容",
+            "created_at": "2018-12-20 16:38:28",
+            "updated_at": "2018-12-24 13:46:14",
+            "state": 0,
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 40,
+            "chat_no": "20181224000001",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "type": 0,
+            "message_type": 0,
+            "content": "聊天内容",
+            "created_at": "2018-12-24 13:37:56",
+            "updated_at": "2018-12-24 13:46:14",
+            "state": 0,
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ]
+}
+```
+
+## 发送消息
+
+### 地址：/api/user/message/send
+
+**请求方式：POST**
+
+**请求头一定要带X-Socket-Id 参数，Vue Axios 以外框架可以手动获取**
+
+```js
+var socketId = Echo.socketId();
+```
+
+**Parameter:None**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| to_user | string | required | 对应客服的id |
+| content | string | required | 聊天内容 |
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": "20181220000007"
 }
 ```
