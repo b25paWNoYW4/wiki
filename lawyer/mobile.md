@@ -2,7 +2,7 @@
 <!-- SUBTITLE: A quick summary of Mobile -->
 
 # 基础接口
-## 注册接口
+## 用户注册
 
 ### 地址：/api/user/signUp
 
@@ -34,7 +34,7 @@
 }
 ```
 
-## 短信验证码接口
+## 发送短信验证码
 
 ### 地址：/api/verifyCode
 
@@ -71,7 +71,7 @@
     }
 }
 ```
-## 忘记密码接口
+## 忘记密码
 
 ### 地址：/api/user/forget/password
 
@@ -99,7 +99,7 @@
     }
 }
 ```
-## 退出登录接口
+## 退出登录
 
 ### 地址：/api/user/logout
 
@@ -153,7 +153,7 @@
 ```
 
 # 视频接口
-## 视频列表接口
+## 视频列表
 
 ### 地址：/api/user/video/list
 
@@ -203,7 +203,7 @@
     }
 }
 ```
-## 获取具体视频接口
+## 获取具体视频
 
 ### 地址：/api/user/video/{video}
 
@@ -299,7 +299,7 @@
 ```
 
 # 资讯文章接口
-## 资讯文章列表接口
+## 资讯文章列表
 
 ### 地址：/api/user/article/list
 
@@ -313,6 +313,7 @@
 | title | string | optional | 文章标题 |
 
 *实际返回结果里是有id的*
+
 **Example-Response:**
 ```json
 {
@@ -348,7 +349,7 @@
     }
 }
 ```
-## 获取具体文章接口
+## 获取具体文章
 
 ### 地址：/api/user/article/{article}
 
@@ -385,7 +386,7 @@
 ```
 
 # 律师接口
-## 律师列表接口
+## 律师列表
 
 ### 地址：/api/user/lawyer/list
 
