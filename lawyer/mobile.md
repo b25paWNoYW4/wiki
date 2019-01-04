@@ -466,3 +466,153 @@
     }
 }
 ```
+
+# 个人中心接口
+## 获取用户个人信息
+
+### 地址：/api/user/profile
+
+**请求方式：GET**
+
+**Parameter:None**
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "name": "doge1",
+            "phone": "18888888888",
+            "avatar": "http://video.test/default1.jpg",
+            "verified": true,
+            "gender": 1,
+            "verified_at": "2018-12-28 18:49:05",
+            "created_at": "2018-12-07 11:02:15",
+            "updated_at": "2019-01-03 15:17:46"
+        }
+    }
+}
+```
+## 获取用户历史认证记录
+
+### 地址：/api/user/audit/result
+
+**请求方式：GET**
+
+**Parameter:None**
+
+**示例返回待更新**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": []
+    }
+}
+```
+
+## 更新用户个人信息
+
+### 地址：/api/user/profile
+
+**请求方式：POST**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 用户姓名 |
+| password | string | optional | 密码 |
+| password_confirm | string | required_if:password | 重复密码 |
+| gender | integer | required | 用户性别0女1男 |
+| avatar | string | required | 用户头像 |
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## 用户重新认证
+
+### 地址：/api/user/re/auth
+
+**请求方式：POST**
+
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 用户姓名 |
+| company | string | required | 公司名称 |
+| address | string | required | 公司地址 |
+| certificates | array | required | 公司证书图片 |
+
+
+**Example-Response:1**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+**Example-Response:2**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 400,
+        "message": "已完成认证，无法再次认证"
+    }
+}
+```
+
+## 用户修改手机号
+
+### 地址：/api/user/profile/phoneChange
+
+**请求方式：POST**
+
+**需要在请求头内加上Access-token参数，参数值与手机号一致**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| mobile | string | required | 手机号 |
+| verifyCode | string | required | 验证码 |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
