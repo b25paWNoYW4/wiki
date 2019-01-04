@@ -697,8 +697,9 @@
 | gender | integer | optional | 0女1男 |
 | verified | integer | optional | 0未认证1认证 |
 
-**Example-Response:**
+**只有通过认证的用户，其对应公司信息才会显示出来**
 
+**Example-Response:**
 
 ```json
 {
@@ -710,12 +711,34 @@
             "current_page": 1,
             "data": [
                 {
+                    "id": "08714e4b-32fd-4bff-846d-c06122dcb7cd",
+                    "name": "wangergou",
+                    "phone": "13118811351",
+                    "avatar": "http://video.test/images/user/default.png",
+                    "gender": 1,
+                    "verified": 0,
+                    "verified_at": null,
+                    "created_at": "2019-01-03 17:55:55",
+                    "company": null
+                },
+                {
+                    "id": "783d0d37-e09d-4965-9d7d-4126b32914d5",
+                    "name": "wangergou",
+                    "phone": "13118811353",
+                    "avatar": "http://video.test/images/user/default.png",
+                    "gender": 1,
+                    "verified": 0,
+                    "verified_at": null,
+                    "created_at": "2019-01-03 17:53:06",
+                    "company": null
+                },
+                {
                     "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                     "name": "必填王鹅肉",
                     "phone": "18888888880",
                     "avatar": "http://video.test/images/user/default.png",
                     "gender": 1,
-                    "verified": true,
+                    "verified": 1,
                     "verified_at": "2018-12-29 00:00:00",
                     "created_at": "2018-12-19 17:46:55",
                     "company": {
@@ -734,6 +757,17 @@
                         "created_at": "2018-12-29 17:30:31",
                         "updated_at": "2018-12-29 17:53:30"
                     }
+                },
+                {
+                    "id": "fbb16a32-ab49-48bf-a45e-13785e4ae6f5",
+                    "name": "wangergou",
+                    "phone": "13118811352",
+                    "avatar": "http://video.test/images/user/default.png",
+                    "gender": 1,
+                    "verified": 0,
+                    "verified_at": null,
+                    "created_at": "2019-01-03 16:33:26",
+                    "company": null
                 }
             ],
             "first_page_url": "http://video.test/api/admin/mobile/user?page=1",
@@ -744,8 +778,8 @@
             "path": "http://video.test/api/admin/mobile/user",
             "per_page": 15,
             "prev_page_url": null,
-            "to": 1,
-            "total": 1
+            "to": 4,
+            "total": 4
         }
     }
 }
