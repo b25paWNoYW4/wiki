@@ -616,3 +616,550 @@
     }
 }
 ```
+
+# 聊天相关
+## 获取聊天记录
+
+### 地址：/api/user/message/history
+
+**请求方式：GET**
+
+**Parameter:None**
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| user_id | string | required | 对应客服的id |
+| limit | string | required | 数据分页条数 |
+
+**Example-Response:**
+```json
+{
+    "20181219000001": [
+        {
+            "id": 1,
+            "chat_no": "20181219000001",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsafasdf",
+            "created_at": "2018-12-19 17:49:03",
+            "updated_at": "2018-12-19 17:49:03",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 2,
+            "chat_no": "20181219000001",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsafasdf",
+            "created_at": "2018-12-19 17:52:06",
+            "updated_at": "2018-12-19 17:52:06",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 3,
+            "chat_no": "20181219000001",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsafasdf",
+            "created_at": "2018-12-19 17:52:32",
+            "updated_at": "2018-12-19 17:52:32",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181219000002": [
+        {
+            "id": 4,
+            "chat_no": "20181219000002",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsafasdf",
+            "created_at": "2018-12-19 18:00:04",
+            "updated_at": "2018-12-19 18:00:04",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 5,
+            "chat_no": "20181219000002",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsafasdf",
+            "created_at": "2018-12-19 18:04:09",
+            "updated_at": "2018-12-19 18:04:09",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 6,
+            "chat_no": "20181219000002",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsafasdf",
+            "created_at": "2018-12-19 18:05:42",
+            "updated_at": "2018-12-19 18:05:42",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 7,
+            "chat_no": "20181219000002",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf",
+            "created_at": "2018-12-19 18:06:20",
+            "updated_at": "2018-12-19 18:06:20",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 8,
+            "chat_no": "20181219000002",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf",
+            "created_at": "2018-12-19 18:06:31",
+            "updated_at": "2018-12-19 18:06:31",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 9,
+            "chat_no": "20181219000002",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:06:55",
+            "updated_at": "2018-12-19 18:06:55",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181219000003": [
+        {
+            "id": 10,
+            "chat_no": "20181219000003",
+            "admin_user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:14:31",
+            "updated_at": "2018-12-19 18:14:31",
+            "admin_user": {
+                "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "name": "doge",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181219000004": [
+        {
+            "id": 11,
+            "chat_no": "20181219000004",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:21:30",
+            "updated_at": "2018-12-19 18:21:30",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 12,
+            "chat_no": "20181219000004",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:21:47",
+            "updated_at": "2018-12-19 18:21:47",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 13,
+            "chat_no": "20181219000004",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:22:21",
+            "updated_at": "2018-12-19 18:22:21",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 14,
+            "chat_no": "20181219000004",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:25:26",
+            "updated_at": "2018-12-19 18:25:26",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 15,
+            "chat_no": "20181219000004",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:25:36",
+            "updated_at": "2018-12-19 18:25:36",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 16,
+            "chat_no": "20181219000004",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 18:27:21",
+            "updated_at": "2018-12-19 18:27:21",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181219000005": [
+        {
+            "id": 17,
+            "chat_no": "20181219000005",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-19 19:01:54",
+            "updated_at": "2018-12-19 19:01:54",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181220000001": [
+        {
+            "id": 18,
+            "chat_no": "20181220000001",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:06:44",
+            "updated_at": "2018-12-20 10:06:44",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 19,
+            "chat_no": "20181220000001",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:07:20",
+            "updated_at": "2018-12-20 10:07:20",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 20,
+            "chat_no": "20181220000001",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:09:54",
+            "updated_at": "2018-12-20 10:09:54",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 21,
+            "chat_no": "20181220000001",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:10:56",
+            "updated_at": "2018-12-20 10:10:56",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 22,
+            "chat_no": "20181220000001",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:11:58",
+            "updated_at": "2018-12-20 10:11:58",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 23,
+            "chat_no": "20181220000001",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:13:22",
+            "updated_at": "2018-12-20 10:13:22",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181220000002": [
+        {
+            "id": 24,
+            "chat_no": "20181220000002",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:15:16",
+            "updated_at": "2018-12-20 10:15:16",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 25,
+            "chat_no": "20181220000002",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "sdf1",
+            "created_at": "2018-12-20 10:15:52",
+            "updated_at": "2018-12-20 10:15:52",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 26,
+            "chat_no": "20181220000002",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsfasdf",
+            "created_at": "2018-12-20 10:16:45",
+            "updated_at": "2018-12-20 10:16:45",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ],
+    "20181220000003": [
+        {
+            "id": 27,
+            "chat_no": "20181220000003",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "dsfasdf",
+            "created_at": "2018-12-20 10:21:52",
+            "updated_at": "2018-12-20 10:21:52",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 28,
+            "chat_no": "20181220000003",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "NIHAO",
+            "created_at": "2018-12-20 10:22:12",
+            "updated_at": "2018-12-20 10:22:12",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        },
+        {
+            "id": 29,
+            "chat_no": "20181220000003",
+            "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+            "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "type": 0,
+            "message_type": 0,
+            "content": "FSGDASDG",
+            "created_at": "2018-12-20 10:23:06",
+            "updated_at": "2018-12-20 10:23:06",
+            "admin_user": {
+                "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "name": "test",
+                "avatar": "http://video.test/images/user/default.png"
+            }
+        }
+    ]
+}
+```
+## 获取客服列表
+
+### 地址：/api/user/message/customerService/list
+
+**请求方式：GET**
+
+**Parameter:None**
+
+**示例返回待更新**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": [
+        {
+            "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "name": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "avatar": "http://video.test/images/user/default.png",
+            "online_state": true
+        }
+    ]
+}
+```
+
+## 获取未读消息列表
+
+### 地址：/api/user/message/unread/list
+
+**请求方式：GET**
+
+**Parameter:None**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "message": [
+        {
+            "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+            "name": "doge",
+            "value": 6
+        }
+    ]
+}
+```
