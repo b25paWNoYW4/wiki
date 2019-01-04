@@ -356,7 +356,7 @@
 
 **请求方式：GET**
 
-**Parameter: **
+**Parameter:**
 
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
@@ -437,7 +437,7 @@
 
 **请求方式：GET**
 
-**Parameter: **
+**Parameter:**
 
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
