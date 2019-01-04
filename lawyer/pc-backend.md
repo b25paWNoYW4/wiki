@@ -1217,6 +1217,46 @@
 }
 ```
 # 视频管理接口
+
+## 获取视频上传凭证
+
+### 地址：/api/admin/video/uploadAuth
+
+**请求方式：POST**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| title | string | required | 视频名称 |
+| desc | string | optional | 视频描述 |
+| file | string | required | 文件名，一定要包含扩展名 |
+| poster | url | optional | 视频封面图片，图片url |
+| tags | string | optional | 视频的标签，多个用逗号分隔 |
+
+
+**支持的视频格式列表：**
+```text
+['avi','wmv','mpeg','mp4','mov','mkv','flv','f4v','m4v','rmvb','rm','3gp','dat','ts','mts','vob']
+```
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": {
+            "UploadAddress": "eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6Im91dGluLWEzZGJhYzNiZWQ0YzExZThhNGFmMDAxNjNlMWM5MWM4IiwiRmlsZU5hbWUiOiJjdXN0b21lclRyYW5zL2UyOTdjOTJkYmYyMzAzYzg4YjhhNjkzMjM1OTMzMTg0LzMwNGM1NC0xNjgxN2EyOTY1OS0wMDA1LTVkZGUtYzExLTUzYTUwLmF2aSJ9",
+            "VideoId": "86c761ac335d44fea1dd9347c237fbd6",
+            "RequestId": "D20C42D3-D088-4A75-B598-24D6DE9439AF",
+            "UploadAuth": "eyJTZWN1cml0eVRva2VuIjoiQ0FJUzJ3UjFxNkZ0NUIyeWZTaklyNG5DSEluRXU1Z1o1STZOUVJEM3BtSnRic2w4M3FiTXNEejJJSGxQZTNGaEFPb2V2L2svbVc5VTdmb2NsclVxRnNZZEdCeWFOSnN2dHNzUHFWajdKcGZadjh1ODRZQURpNUNqUWFBcGc4Z1NtWjI4V2Y3d2FmK0FVQXJHQ1RtZDVNZ1lvOWJUY1RHbFFDWnVXLy90b0pWN2I5TVJjeENsWkQ1ZGZybC9MUmRqcjhsbzF4R3pVUEcyS1V6U24zYjNCa2hsc1JZZTcyUms4dmFIeGRhQXpSRGNnVmJtcUpjU3ZKK2pDNEM4WXM5Z0c1MTlYdHlwdm9weGJiR1Q4Q05aNXo5QTlxcDlrTTQ5L2l6YzdQNlFIMzViNFJpTkw4L1o3dFFOWHdoaWZmb2JIYTlZcmZIZ21OaGx2dkRTajQzdDF5dFZPZVpjWDBha1E1dTdrdTdaSFArb0x0OGphWXZqUDNQRTNyTHBNWUx1NFQ0OFpYVVNPRHREWWNaRFVIaHJFazRSVWpYZEk2T2Y4VXJXU1FDN1dzcjIxN290ZzdGeXlrM3M4TWFIQWtXTFg3U0IyRHdFQjRjNGFFb2tWVzRSeG5lelc2VUJhUkJwYmxkN0JxNmNWNWxPZEJSWm9LK0t6UXJKVFg5RXoycExtdUQ2ZS9MT3M3b0RWSjM3V1p0S3l1aDRZNDlkNFU4clZFalBRcWl5a1QwY0ZncGZUSzFSemJQbU5MS205YmFCMjUvelcrUGREZTBkc1Znb1hWTDdwaUdXRzNSTE5uK3p0Sjl4YmtlRStzS1V4ZmZBK1pwclN3RWo2b3hVVkZpSUlkOHhwbEkrdS9Mc3RCbksrNzY2V1NEdDlYY2o1dDdkOHBOejgwSmlaYkRtb1pmTDRHNlA3U1ROTy9aanc1K1BCak0wZTNudEpTd2xtc0wxcjJrY3VoVU1uMXV6UHhzaThGbUwzUTZ5QnBaQ2lhUFRseW9lV3ZZT3libUhGMno4b0g4Y0lOYUk4cXNOWitSdVIrbEhTYzJneGp0dXd2RDNNTDBPQ0Q0M1dYd2FnQUZtZzE0Ym9PaHRYR0JzdmxXSFZoTUZnd0trRlJ2aGppY0tHa3VRV0ZDb3M1MDBXajMxSjFmK1FON1RGbDFIZkhtL0toRkhpUmxZYTRVcVpYK1R5WTg5bXd6c0V1TTViK1gzWkpNKzlvcmRtb2x0NU90MHNrNUNMUWtCM0VFbzhsS0pJV2p5SWZUQmFJcWFBMWs4U01qcThXVGRldGtxUEJvZVcwb2VLTjVyY0E9PSIsIkFjY2Vzc0tleUlkIjoiU1RTLk5Kd1czcFZHOFNMZkM2RkJiOGJGUDFjZ1IiLCJFeHBpcmVVVENUaW1lIjoiMjAxOS0wMS0wNFQwNzo1MTowOFoiLCJBY2Nlc3NLZXlTZWNyZXQiOiJBcmkycG1qVFBHdnlHYUNmRjROTjRFa2V6Unc2RUFiRXVNRE5oYnU3bXJxSyIsIkV4cGlyYXRpb24iOiIzNTExIiwiUmVnaW9uIjoiY24tc2hhbmdoYWkifQ=="
+        }
+    }
+}
+```
+
 ## 视频信息创建
 
 ### 地址：/api/admin/video
