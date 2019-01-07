@@ -2,7 +2,7 @@
 <!-- SUBTITLE: A quick summary of Api Doc -->
 
 # 聊天记录管理接口
-## 消息列表获取
+## ~~消息列表获取~~
 
 ### 地址：/api/admin/message
 
