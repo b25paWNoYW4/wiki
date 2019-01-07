@@ -25,7 +25,154 @@ state => 消息接收者的已读未读状态，0未读1已读
 
 ```
 
+**Example-Response:None**
+
+
+## 聊天记录客服列表
+
+### 地址：/api/admin/message/mainList
+
+**请求方式：GET**
+
+**Parameter:None**
+
+```text
+
+参数解释：
+messageCount:消息总条数
+customer => 客服id
+customer_info => 客服信息
+
+```
+
 **Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": [
+            {
+                "messageCount": 21,
+                "customer": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "customer_info": {
+                    "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "name": "doge1",
+                    "avatar": "http://video.test/default1.jpg",
+                    "created_at": "2018-12-07 11:02:15",
+                    "updated_at": "2019-01-04 13:47:13"
+                }
+            },
+            {
+                "messageCount": 19,
+                "customer": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "customer_info": {
+                    "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "name": "必填王鹅肉",
+                    "avatar": "http://video.test/images/user/default.png",
+                    "created_at": "2018-12-19 17:46:55",
+                    "updated_at": "2018-12-29 17:53:30"
+                }
+            }
+        ]
+    }
+}
+```
+
+
+## 客服历史聊天对象列表
+
+### 地址：/api/admin/message/{customer}/list
+
+**请求方式：GET**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`customer`}` | string | required | 客服id |
+
+```text
+
+参数解释：
+messageCount:消息总条数
+mobileUser => 用户id
+mobileUser_info => 用户信息
+
+```
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": [
+            {
+                "messageCount": 9,
+                "mobileUser": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                "mobileUser_info": {
+                    "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
+                    "name": "doge1",
+                    "phone": "13118811351",
+                    "avatar": "http://video.test/default1.jpg",
+                    "verified": 1,
+                    "gender": 1,
+                    "verified_at": "2018-12-28 18:49:05",
+                    "created_at": "2018-12-07 11:02:15",
+                    "updated_at": "2019-01-04 13:47:13"
+                }
+            },
+            {
+                "messageCount": 12,
+                "mobileUser": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                "mobileUser_info": {
+                    "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
+                    "name": "必填王鹅肉",
+                    "phone": "18888888880",
+                    "avatar": "http://video.test/images/user/default.png",
+                    "verified": 1,
+                    "gender": 1,
+                    "verified_at": "2018-12-29 00:00:00",
+                    "created_at": "2018-12-19 17:46:55",
+                    "updated_at": "2018-12-29 17:53:30"
+                }
+            }
+        ]
+    }
+}
+```
+
+## 客服用户消息记录列表
+
+### 地址：/api/admin/message/{customer}/{user}/history
+
+**请求方式：GET**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`customer`}` | string | required | 客服id |
+| `{`user`}` | string | required | 用户id |
+| limit | integer | optional | 数据分页条数 |
+
+```text
+
+参数解释：
+chat_no:会话编号
+type => 0 系统客服发送给用户的消息
+type => 1 用户发送给客服的消息
+state => 消息接收者的已读未读状态，0未读1已读
+
+```
+
+**Example-Response:**
+
 ```json
 {
     "status": "success",
@@ -48,22 +195,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 1,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -84,22 +224,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 0,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -120,22 +253,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 0,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -156,22 +282,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 0,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -192,22 +311,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 1,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -228,22 +340,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 0,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -264,22 +369,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 1,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -300,22 +398,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 0,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -336,22 +427,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 1,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -372,22 +456,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 1,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -408,22 +485,15 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 0,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
@@ -444,154 +514,66 @@ state => 消息接收者的已读未读状态，0未读1已读
                     "state": 1,
                     "admin_user": {
                         "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
+                        "name": "doge1",
+                        "avatar": "http://video.test/default1.jpg"
                     },
                     "mobile_user": {
                         "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
                         "name": "必填王鹅肉",
                         "phone": "18888888880",
                         "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
+                        "verified": 1,
                         "gender": 1,
                         "type": 0,
                         "verified_at": "2018-12-29 00:00:00",
                         "created_at": "2018-12-19 17:46:55",
                         "updated_at": "2018-12-29 17:53:30"
-                    }
-                },
-                {
-                    "id": 29,
-                    "chat_no": "20181220000003",
-                    "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
-                    "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                    "type": 0,
-                    "message_type": 0,
-                    "content": "FSGDASDG",
-                    "created_at": "2018-12-20 10:23:06",
-                    "updated_at": "2018-12-20 10:23:06",
-                    "state": 0,
-                    "admin_user": {
-                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
-                        "name": "必填王鹅肉",
-                        "phone": "18888888880",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
-                        "gender": 1,
-                        "type": 0,
-                        "verified_at": "2018-12-29 00:00:00",
-                        "created_at": "2018-12-19 17:46:55",
-                        "updated_at": "2018-12-29 17:53:30"
-                    },
-                    "mobile_user": {
-                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
-                    }
-                },
-                {
-                    "id": 28,
-                    "chat_no": "20181220000003",
-                    "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
-                    "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                    "type": 0,
-                    "message_type": 0,
-                    "content": "NIHAO",
-                    "created_at": "2018-12-20 10:22:12",
-                    "updated_at": "2018-12-20 10:22:12",
-                    "state": 0,
-                    "admin_user": {
-                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
-                        "name": "必填王鹅肉",
-                        "phone": "18888888880",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
-                        "gender": 1,
-                        "type": 0,
-                        "verified_at": "2018-12-29 00:00:00",
-                        "created_at": "2018-12-19 17:46:55",
-                        "updated_at": "2018-12-29 17:53:30"
-                    },
-                    "mobile_user": {
-                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
-                    }
-                },
-                {
-                    "id": 27,
-                    "chat_no": "20181220000003",
-                    "admin_user_id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
-                    "user_id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                    "type": 0,
-                    "message_type": 0,
-                    "content": "dsfasdf",
-                    "created_at": "2018-12-20 10:21:52",
-                    "updated_at": "2018-12-20 10:21:52",
-                    "state": 0,
-                    "admin_user": {
-                        "id": "ce8a75d0-47b3-4cee-bdaf-a254b76d0764",
-                        "name": "必填王鹅肉",
-                        "phone": "18888888880",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": true,
-                        "gender": 1,
-                        "type": 0,
-                        "verified_at": "2018-12-29 00:00:00",
-                        "created_at": "2018-12-19 17:46:55",
-                        "updated_at": "2018-12-29 17:53:30"
-                    },
-                    "mobile_user": {
-                        "id": "b6affc3a-27ff-4073-ab0c-d6fefa57aad6",
-                        "name": "doge",
-                        "phone": "18888888888",
-                        "avatar": "http://video.test/images/user/default.png",
-                        "verified": false,
-                        "gender": 1,
-                        "type": 1,
-                        "verified_at": "2018-12-28 18:49:05",
-                        "created_at": "2018-12-07 11:02:15",
-                        "updated_at": "2018-12-07 11:02:15"
                     }
                 }
             ],
-            "first_page_url": "http://video.test/api/admin/message?page=1",
+            "first_page_url": "http://video.test/api/admin/message/b6affc3a-27ff-4073-ab0c-d6fefa57aad6/ce8a75d0-47b3-4cee-bdaf-a254b76d0764/history?page=1",
             "from": 1,
-            "last_page": 3,
-            "last_page_url": "http://video.test/api/admin/message?page=3",
-            "next_page_url": "http://video.test/api/admin/message?page=2",
-            "path": "http://video.test/api/admin/message",
+            "last_page": 1,
+            "last_page_url": "http://video.test/api/admin/message/b6affc3a-27ff-4073-ab0c-d6fefa57aad6/ce8a75d0-47b3-4cee-bdaf-a254b76d0764/history?page=1",
+            "next_page_url": null,
+            "path": "http://video.test/api/admin/message/b6affc3a-27ff-4073-ab0c-d6fefa57aad6/ce8a75d0-47b3-4cee-bdaf-a254b76d0764/history",
             "per_page": 15,
             "prev_page_url": null,
-            "to": 15,
-            "total": 41
+            "to": 12,
+            "total": 12
         }
     }
 }
 ```
 
-## 消息记录删除
+## 客服用户消息记录一键删除
+
+### 地址：/api/admin/message/{customer}/{user}/history
+
+**请求方式：DELETE**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| `{`customer`}` | string | required | 客服id |
+| `{`user`}` | string | required | 用户id |
+
+
+**Example-Response:**
+
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
+## ~~消息记录删除~~
 
 ### 地址：/api/admin/message/{message}
 
