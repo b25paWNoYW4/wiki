@@ -2,9 +2,9 @@
 <!-- SUBTITLE: A quick summary of Api Doc -->
 
 # 聊天记录管理接口
-## ~~消息列表获取~~
+## ~~消息列表获取（废弃）
 
-### 地址：/api/admin/message
+### ~~地址：/api/admin/message~~
 
 **请求方式：GET**
 
@@ -573,9 +573,9 @@ state => 消息接收者的已读未读状态，0未读1已读
 }
 ```
 
-## ~~消息记录删除~~
+## ~~消息记录删除（废弃）~~
 
-### 地址：/api/admin/message/{message}
+### ~~地址：/api/admin/message/{message}~~
 
 **请求方式：DELETE**
 
