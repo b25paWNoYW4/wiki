@@ -141,7 +141,7 @@
 
 ### 地址：/api/user/banner
 
-**请求方式：POST**
+**请求方式：GET**
 
 
 **Parameter:None**
