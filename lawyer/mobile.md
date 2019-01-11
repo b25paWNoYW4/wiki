@@ -152,6 +152,32 @@
 }
 ```
 
+## 图片上传接口
+
+### 地址：/api/upload
+
+**请求方式：POST**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| img | file | required | 图片 |
+| editor | int | nullable | 是否editor |
+
+**当传editor参数时，直接返回图片地址，按需使用**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 # 视频接口
 ## 视频列表
 
