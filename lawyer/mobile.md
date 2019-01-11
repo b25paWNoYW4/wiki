@@ -154,7 +154,7 @@
 
 ## 图片上传接口
 
-### 地址：/api/upload
+### 地址：/api/upload/img
 
 **请求方式：POST**
 
