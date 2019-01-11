@@ -34,6 +34,23 @@
 }
 ```
 
+
+## 用户登录
+
+### 地址：/api/user/login
+
+**请求方式：POST**
+
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| phone | string | required | 手机号 |
+| password | string | required | 密码5-32位 |
+
+**Example-Response:待添加**
+
 ## 发送短信验证码
 
 ### 地址：/api/verifyCode
