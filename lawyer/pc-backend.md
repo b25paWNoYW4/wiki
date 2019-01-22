@@ -767,6 +767,30 @@ state => 消息接收者的已读未读状态，0未读1已读
     ]
 }
 ```
+
+## 更新具体消息阅读状态
+
+### 地址：/api/admin/message/finishRead
+
+**请求方式：POST**
+
+**Parameter:**
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| user_id | string | required | app用户的id |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
+
 ## 获取和某一app用户的历史消息
 
 ### 地址：/api/admin/message/history
