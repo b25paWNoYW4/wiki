@@ -1330,7 +1330,28 @@
     ]
 }
 ```
+## 更新具体消息阅读状态
 
+### 地址：/api/user/message/finishRead
+
+**请求方式：POST**
+
+**Parameter:**
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| user_id | string | required | 客服的id |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "操作成功"
+    }
+}
+```
 ## 发送消息
 
 ### 地址：/api/user/message/send
