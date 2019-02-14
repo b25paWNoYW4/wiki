@@ -195,6 +195,30 @@
     }
 }
 ```
+
+## app最新下载地址接口
+
+### 地址：/api/user/app/update
+
+**请求方式：GET**
+
+**Parameter:**
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| version | string | required | 当前app版本号 |
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "https://xinyuan.uiit.org/storage/file/2019-02-14/6zDjP80ML9j4M98q.apk"
+    }
+}
+```
 # 视频接口
 ## 视频列表
 
