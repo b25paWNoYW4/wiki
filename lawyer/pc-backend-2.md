@@ -991,7 +991,8 @@ state = 2 => 审核不通过
 | AliyunVideoTemplateGroupId | string | required | 阿里云视频转码模板id |
 | UserAgreement | html | required | 用户协议 |
 | MobileBanana | array | required | 轮播图 |
-
+| APP_Version | string | required | app版本号 |
+| APP_Download_Url | string | required | app下载地址 |
 *每个轮播图设置项有三个参数，分别为：image, title, content 如下示例*
 
 **Example-Request:**
