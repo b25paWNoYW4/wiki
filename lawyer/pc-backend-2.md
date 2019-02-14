@@ -1012,3 +1012,27 @@ state = 2 => 审核不通过
     }
 }
 ```
+
+## 文件上传
+
+### 地址：/api/upload/file
+
+**请求方式：POST**
+
+**Parameter：**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| file | file | required | 文件，只能为apk格式 |
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "code": 200,
+    "result": {
+        "statusCode": 200,
+        "message": "https://xinyuan.uiit.org/storage/file/2019-02-14/6zDjP80ML9j4M98q.apk"
+    }
+}
+```
