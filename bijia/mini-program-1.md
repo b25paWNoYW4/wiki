@@ -126,6 +126,7 @@
 | include | string | nullable | 接口可能的关联关系 |
 | search | string | nullable | 搜索字段 |
 | searchFields | string | nullable | 指定搜索字段的属性 |
+| searchJoin | string | nullable | 多条件搜索时，可以指定搜索同时匹配 |
 | limit | int | nullable | 分页条数 |
 
 | Query Parameter | Optional Values | Description |
@@ -137,6 +138,7 @@
 **介绍一下搜索时的参数**
 
 1. search：搜索的参数，可以指定搜索字段，可以多字段同时搜索，如本接口，支持搜索字段为`name`和`category.name`，`?search=xxx`，默认同时搜索这两个字段
+2. searchJoin ：多字段搜索时，如支持搜索A、B、C，默认的是搜索A or B or C条件的结果出来，设置searchJoin=and,结果会是A and B and C
 2. searchFields：指定搜索字段的属性，如`?search=xxx&searchFields=category.name:=` category.name:=,表示search的参数是搜索的category.name字段，`:=`表示搜索的参数是搜索与搜索条件相等的结果
 3. include：返回数据中可能的关联关系的对应数据，如本接口中category，是产品所属的分类
 4. limit: 当limit为0时，不分页返回所有数据
@@ -441,6 +443,81 @@
     "meta": {
         "include": [],
         "custom": []
+    }
+}
+```
+
+## 公式搜索
+
+### 地址：/v1/client/formulas
+
+示例请求：
+- `http://api.apiato.test/v1/client/formulas?search=name:公式0;category.name:范德萨;product.name:小汽车`
+- `http://api.apiato.test/v1/client/formulas?search=name:公式0;category.name:范德萨;product.name:小汽车&include=unit,category,product&searchJoin=and`
+- `http://api.apiato.test/v1/client/formulas?search=name:公式;is_preset:1&searchJoin=and` （这个是用来搜索系统预设公式的，由系统预设公式创建用户自建公式时，会用到）
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | category,product,unit,company | 公式所属分类；公式所属产品；公式计算结果单位；公式所属公司 |
+| search | name,category.name,product.name,company.name,is_preset | 公式名称，分类名称，产品名称，公司名称，是否平台预设公式 |
+| searchFields | name => 'like',category.name => 'like', company.name => 'like',product.name => 'like',is_preset => '=', | 公式、分类、产品、公司名称，模糊查询； |
+
+**Example-Response:**
+```json
+{
+    "data": [
+        {
+            "object": "Formula",
+            "id": "bml0wd39b5pkznag",
+            "name": "公式0",
+            "content": [
+                {
+                    "name": "test",
+                    "type": 0,
+                    "value": 2
+                }
+            ],
+            "images": "http://api.apiato.test/storage/image/2019-03-12/NGp8CE1YDopgZxje4pLcyxJMO9b1MfmLTSqWX3qA.jpeg",
+            "purchase_advice": "dsfasdf",
+            "created_at": {
+                "date": "2019-03-14 17:21:04.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-14 17:21:04.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 3,
+            "type": 0,
+            "is_preset": true,
+            "status": 1,
+            "usage": 0
+        }
+    ],
+    "meta": {
+        "include": [
+            "category",
+            "product",
+            "company",
+            "unit"
+        ],
+        "custom": [],
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
     }
 }
 ```
