@@ -110,3 +110,95 @@
     }
 }
 ```
+
+## 产品搜索
+
+### 地址：/v1/client/products
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| include | string | nullable | 接口可能的关联关系 |
+| search | string | nullable | 搜索字段 |
+| searchFields | string | nullable | 指定搜索字段的属性 |
+| limit | int | nullable | 分页条数 |
+
+| Query Parameter | Optional Values | Description |
+| include | category | 产品所属分类 |
+| search | name,category.name | 产品名称，产品所属分类名称 |
+| searchFields | name=>'like',category.name=>'=' | 产品名，模糊查询；分类名，精确查询 |
+
+**介绍一下搜索时的参数**
+
+1. search：搜索的参数，可以指定搜索字段，可以多字段同时搜索，如本接口，支持搜索字段为`name`和`category.name`，`?search=xxx`，默认同时搜索这两个字段
+2. searchFields：指定搜索字段的属性，如`?search=xxx&searchFields=category.name:=` category.name:=,表示search的参数是搜索的category.name字段，`:=`表示搜索的参数是搜索与搜索条件相等的结果
+3. include：返回数据中可能的关联关系的对应数据，如本接口中category，是产品所属的分类
+4. limit: 当limit为0时，不分页返回所有数据
+
+**Example-Response:**
+```json
+{
+    "data": [
+        {
+            "object": "Product",
+            "id": "bml0wd39b5pkznag",
+            "name": "小汽车123",
+            "created_at": {
+                "date": "2019-03-08 09:38:36.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-14 11:45:38.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 3,
+            "status": 1,
+            "creator": null,
+            "category": {
+                "data": {
+                    "object": "Category",
+                    "id": "eq6am74064z0vpbn",
+                    "name": "特斯拉",
+                    "desc": null,
+                    "order": 1,
+                    "created_at": {
+                        "date": "2019-03-06 10:20:30.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-06 10:20:30.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "real_id": 4,
+                    "status": 1,
+                    "creator": "平台添加"
+                }
+            }
+        }
+    ],
+    "meta": {
+        "include": [
+            "category"
+        ],
+        "custom": [],
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 5,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
+    }
+}
+```
+
