@@ -672,7 +672,7 @@
 
 ## 修改联系人
 
-### 地址：/v1/client/contacts/{ID}
+### 地址：/v1/client/contacts/`{`ID`}`
 
 **请求方式：PATCH**
 
