@@ -47,7 +47,7 @@
 | file | file | required | 图片 |
 | editor | int | nullable,in:0,1 | 是否editor |
 
-**当传editor=1时，直接返回图片永久保存地址，其它情况返回的地址是暂时的**
+**当传editor=1时，直接返回图片永久保存地址，主要应用场景如富文本编辑器内；其它情况不需要传editor参数，但返回的地址是暂时的**
 
 **Example-Response:**
 ```json
