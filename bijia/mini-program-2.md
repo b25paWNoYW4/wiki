@@ -236,7 +236,7 @@
 
 ## 修改自用公式
 
-### 地址：/v1/client/user-formulas/{ID}
+### 地址：/v1/client/user-formulas/{!!ID!!}
 
 **请求方式：PATCH**
 
