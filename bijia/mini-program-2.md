@@ -284,3 +284,30 @@
 
 **Example-Response:**
 略，都是返回修改过的公式内容
+
+## 由系统公式创建自用公式
+
+### 地址：/v1/client/user-formulas/by-system-formulas
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| system_formula_no | string | required | 系统公式编号 |
+| name | string | required | 公式名称 |
+| category_id | string | required | 公式所属分类id |
+| product_id | string | required | 公式所属产品id |
+| unit_id | string | required | 公式计算结果单位id |
+| images | array | required | 公式图片 |
+| images.* | url | required | 公式图片url |
+| purchase_advice | string | required | 采购建议 |
+| content | array | required | 公式内容 |
+
+**分类id只能为二级分类的id，由系统公式创建自用公式，系统公式的内容只能修改不能增删，能修改的只有系数与公式预设**
+
+**Example-Response:**
+返回示例略，类似上面的创建自用公式
