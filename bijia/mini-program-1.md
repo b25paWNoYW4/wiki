@@ -129,6 +129,7 @@
 | limit | int | nullable | 分页条数 |
 
 | Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
 | include | category | 产品所属分类 |
 | search | name,category.name | 产品名称，产品所属分类名称 |
 | searchFields | name=>'like',category.name=>'=' | 产品名，模糊查询；分类名，精确查询 |
