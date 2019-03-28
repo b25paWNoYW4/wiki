@@ -31,3 +31,54 @@
 ```
 
 **说明：is_merchant表示用户身份，false为普通用户，true为商户**
+
+## 申请成为商户
+
+### 地址：/v1/client/companies/verify
+
+**请求方式：POST**
+
+**需授权：是**
+
+*说明一下，需授权时，在请求header内加入参数：Authorization：Bearer+空格+access_token, 示例如下*
+
+`Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY0MTQxMDljMzE5YzQyNmVmMmQxNTEwMzk3NzcxNmQ5ZWJiNDVjMWViYzI1ZDQwNWFiMDZlOTFhMjcyNTM2ZTE4ZjdhNTNmYmFkZWY2MTU1In0.eyJhdWQiOiIyIiwianRpIjoiZjQxNDEwOWMzMTljNDI2ZWYyZDE1MTAzOTc3NzE2ZDllYmI0NWMxZWJjMjVkNDA1YWIwNmU5MWEyNzI1MzZlMThmN2E1M2ZiYWRlZjYxNTUiLCJpYXQiOjE1NTM3NDI0MzksIm5iZiI6MTU1Mzc0MjQzOSwiZXhwIjoxNTUzODI4ODM4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.2szgTyOa3ItJPtuDIPbv40Z6EUPq2-lUzcbbuFdk2IhbE5GhM97b0W77WbMwsUwpR-3FSBrhKcU-SPznzONRrVmBvhdjs0QYRPoCexkPEpMgQr1hPnAyObMTxjLnGSW6xfd_aYWCCdbbYAOW0K87HO6aYHnk9zid4pnS-VAvQfzNZYnozAs8j5jK69psjbTAVYDzfJFUMzBy3vj8BmFAUpkIURs8s8XiPv_USMrqwZAu2ns-9s2uGbXbTLtn3pOvtKQyl9KEs9x8eiQRYNEOKNaP7xYAR3eDhiENS2NDrETskkqeeBBx8Nf2dLW3Hfy82wBK9ETXIksFlg4sbLhv8oAYUei2RKqK8mBudR-PBg_gcYC9PBWo7JBSn-5ygWE37nj-LyCrfgUEdhed0aRaeB45t3l0ZgUc50RhsJ_cHkz1ov0N4bo7Vr3XaLjMVNFeVuURAiadeXzRFd_0Ijr_j9XpzIeEfjQce6u98uhuZLA8rKTQW4hy42GPOrP-c0PwrLF-xiB8I60UfVirUDKaC1vKZ3Ph_PAVvsCMxmLWD_17wPlSfg5ae7x11Qyu7RpvnYv_iAYO3a7C6QRaLJ18ry2PFNGYB50n59_7xWiyWoyuaUcVhI4QwEVGqkfCxekhg6_viymCZsztdfKTzNNqVTViI0itA2ueBgbRZ1nz4Cc`
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| code | string | required | 微信登录凭证code |
+| name | string | required | 公司名称 |
+| business | string | required,max:50 | 主营范围 |
+| lega_person | string | required,between:2,10 | 公司法人 |
+| tel | string | required | 联系电话 |
+| address | string | required | 公司地址 |
+| company_desc | string | required | 公司介绍 |
+| license_images | url | required | 营业执照 |
+| logo | url | required | 公司logo |
+
+
+**Example-Response1:**
+```json
+{
+    "status": "error",
+    "status_code": 400,
+    "result": {
+        "business_code": 1027,
+        "error_message": "已认证通过，无法重复认证!"
+    }
+}
+```
+
+**Example-Response2:**
+```json
+{
+    "status": "success",
+    "status_code": 200,
+    "result": {
+        "business_code": 9527,
+        "message": "操作成功"
+    }
+}
+```
