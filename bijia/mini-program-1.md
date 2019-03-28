@@ -48,7 +48,6 @@
 
 | Parameter | Type | Status | Description |
 | ------ | ------ | ------ | ------ |
-| code | string | required | 微信登录凭证code |
 | name | string | required | 公司名称 |
 | business | string | required,max:50 | 主营范围 |
 | lega_person | string | required,between:2,10 | 公司法人 |
