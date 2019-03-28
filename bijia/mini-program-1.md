@@ -521,3 +521,594 @@
     }
 }
 ```
+
+## 搜索记录&搜索推荐
+
+搜索记录即搜索推荐
+
+### 地址：/v1/client/search-records
+
+示例请求：
+- `http://api.apiato.test/v1/client/search-records?limit=5`
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| limit | int | 一般拿前5条就行 |
+
+**Example-Response:**
+```json
+{
+    "data": [
+        {
+            "object": "SearchRecord",
+            "id": "qnwmkv5704blag6r",
+            "key": [
+                "看看"
+            ],
+            "created_at": {
+                "date": "2019-03-20 15:13:46.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-20 15:13:46.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 1
+        },
+				{
+            "object": "SearchRecord",
+            "id": "bml0wd39b5pkznag",
+            "key": [
+                "公式0",
+                "范德萨",
+                "小汽车"
+            ],
+            "created_at": {
+                "date": "2019-03-21 10:27:03.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-21 10:27:03.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 3
+        }
+    ],
+    "meta": {
+        "include": [],
+        "custom": [],
+        "pagination": {
+            "total": 14,
+            "count": 5,
+            "per_page": 5,
+            "current_page": 1,
+            "total_pages": 3,
+            "links": {
+                "next": "http://api.apiato.test/v1/client/search-records?limit=5&page=2"
+            }
+        }
+    }
+}
+```
+
+## 联系人列表
+
+搜索记录即搜索推荐
+
+### 地址：/v1/client/contacts
+
+示例请求：
+- `http://api.apiato.test/v1/client/contacts?limit=0`
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | contact,company | 联系人信息；联系人的公司信息 |
+| limit | int | 一般拿全部数据 |
+
+**Example-Response:**
+```json
+{
+    "data": [
+        {
+            "object": "Contact",
+            "id": "qnwmkv5704blag6r",
+            "contact_name": "松岛枫",
+            "contact_tel": "661",
+            "created_at": {
+                "date": "2019-03-11 18:02:25.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-11 18:02:26.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 1,
+            "company": {
+                "data": {
+                    "object": "Company",
+                    "id": "qnwmkv5704blag6r",
+                    "name": "信息科技公司",
+                    "business": "科技服务",
+                    "legal_person": "王二",
+                    "tel": "15221121212",
+                    "address": "深圳",
+                    "company_desc": "本公司是搞外包的",
+                    "license_images": "http://api.apiato.test/storage/image/2019-03-14/Ibee1dhKnB8tvJnygAkfnM02o2YnOpgZqdjN7jKu.jpeg",
+                    "created_at": {
+                        "date": "2019-03-11 02:07:05.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-14 11:01:09.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "status": 1,
+                    "real_id": 1
+                }
+            },
+            "contact": {
+                "data": {
+                    "object": "User",
+                    "id": "qnwmkv5704blag6r",
+                    "name": "Super Admin",
+                    "email": "admin@admin.com",
+                    "confirmed": false,
+                    "nickname": null,
+                    "gender": null,
+                    "birth": null,
+                    "social_auth_provider": null,
+                    "social_id": null,
+                    "social_avatar": {
+                        "avatar": null,
+                        "original": null
+                    },
+                    "created_at": {
+                        "date": "2019-03-01 10:14:01.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-01 10:14:01.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "readable_created_at": "2 weeks ago",
+                    "readable_updated_at": "2 weeks ago",
+                    "real_id": 1,
+                    "deleted_at": null
+                }
+            }
+        }
+    ],
+    "meta": {
+        "include": [
+            "company",
+            "contact"
+        ],
+        "custom": [],
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
+    }
+}
+```
+
+## 添加联系人
+
+### 地址：/v1/client/contacts
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| formula_no | string | required | 公式的编号 |
+
+
+**Example-Response:**
+```json
+{
+    "data": {
+        "object": "Contact",
+        "id": "eq6am74064z0vpbn",
+        "contact_name": "1d23aa",
+        "contact_tel": "13551131313",
+        "created_at": {
+            "date": "2019-03-20 16:21:55.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "updated_at": {
+            "date": "2019-03-20 16:21:55.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "real_id": 4
+    },
+    "meta": {
+        "include": [
+            "company",
+            "contact"
+        ],
+        "custom": []
+    }
+}
+```
+
+## 修改联系人
+
+### 地址：/v1/client/contacts/{ID}
+
+**请求方式：PATCH**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| contact_name | string | required | 联系人姓名 |
+| tel | string | required | 联系人电话 |
+
+*如果需要tel与contact_tel字段一致，联系我修改*
+
+**UrlParameters：ID => 对应联系人的id**
+
+
+**Example-Response:**
+```json
+{
+    "data": {
+        "object": "Contact",
+        "id": "w6l8b75dy5qkv9ze",
+        "company_name": "张三汽车生产厂",
+        "contact_origin_name": "Super Admin",
+        "contact_name": "史蒂芬生的",
+        "contact_tel": "13135453",
+        "created_at": {
+            "date": "2019-03-20 16:26:16.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "updated_at": {
+            "date": "2019-03-20 18:19:48.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "real_id": 7
+    },
+    "meta": {
+        "include": [
+            "company",
+            "contact"
+        ],
+        "custom": []
+    }
+}
+```
+
+## 公式询价
+
+### 地址：/v1/client/enquiry-records
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| formula_no | string | required | 公式的编号 |
+| contact_name | string | required | 姓名 |
+| contact_tel | string | required | 联系方式 |
+| contact_company | string | required | 公司名称 |
+
+
+**Example-Response:**
+```json
+{
+    "data": {
+        "object": "EnquiryRecord",
+        "id": "qnwmkv5704blag6r",
+				"order_no": "ER20190325000001KY",
+				"contact_name": "王二",
+        "contact_tel": "110",
+				"contact_company": "楼下小卖部",
+        "created_at": {
+            "date": "2019-03-20 17:24:42.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "updated_at": {
+            "date": "2019-03-20 17:24:42.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "real_id": 1
+    },
+    "meta": {
+        "include": [],
+        "custom": []
+    }
+}
+```
+
+## 询价记录
+
+
+### 地址：/v1/client/contacts
+
+示例请求：
+- `http://api.apiato.test/v1/client/enquiry-records?include=sender,receiver,product,formula,company`
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | sender,receiver,product,formula,company | 发送人，接收人，对应产品，对应公式，公式所属公司 |
+| limit | int | 一般拿全部数据 |
+
+**Example-Response:**
+```json
+{
+    "data": [
+        {
+            "object": "EnquiryRecord",
+            "id": "qnwmkv5704blag6r",
+            "order_no": null,
+            "contact_name": "王二",
+            "contact_tel": "110",
+            "contact_company": "楼下小卖部",
+            "has_viewed": 0,
+            "created_at": {
+                "date": "2019-03-20 17:24:42.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-20 17:24:42.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 1,
+            "company": {
+                "data": {
+                    "object": "Company",
+                    "id": "qmv7dk48x5b690wx",
+                    "name": "张三汽车生产厂",
+                    "business": "汽车",
+                    "legal_person": "张三",
+                    "tel": "1233124124124",
+                    "address": "萨菲",
+                    "company_desc": "123",
+                    "license_images": null,
+                    "created_at": {
+                        "date": "2019-03-11 02:07:05.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-14 11:17:22.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "status": 1,
+                    "real_id": 2
+                }
+            },
+            "product": {
+                "data": {
+                    "object": "Product",
+                    "id": "qnwmkv5704blag6r",
+                    "name": "小汽车dsf",
+                    "created_at": {
+                        "date": "2019-03-08 09:38:36.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-14 11:45:38.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "real_id": 1,
+                    "status": 2,
+                    "creator": null
+                }
+            },
+            "sender": {
+                "data": {
+                    "object": "User",
+                    "id": "qnwmkv5704blag6r",
+                    "name": "Super Admin",
+                    "email": "admin@admin.com",
+                    "confirmed": false,
+                    "nickname": null,
+                    "gender": null,
+                    "birth": null,
+                    "social_auth_provider": null,
+                    "social_id": null,
+                    "social_avatar": {
+                        "avatar": null,
+                        "original": null
+                    },
+                    "created_at": {
+                        "date": "2019-03-01 10:14:01.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-01 10:14:01.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "readable_created_at": "2 weeks ago",
+                    "readable_updated_at": "2 weeks ago",
+                    "real_id": 1,
+                    "deleted_at": null
+                }
+            },
+            "receiver": {
+                "data": {
+                    "object": "User",
+                    "id": "bml0wd39b5pkznag",
+                    "name": "1d23aa",
+                    "email": "asdfsdf",
+                    "confirmed": false,
+                    "nickname": null,
+                    "gender": null,
+                    "birth": null,
+                    "social_auth_provider": null,
+                    "social_id": null,
+                    "social_avatar": {
+                        "avatar": null,
+                        "original": null
+                    },
+                    "created_at": {
+                        "date": "2019-03-17 17:34:09.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-17 17:34:13.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "readable_created_at": "3 days ago",
+                    "readable_updated_at": "3 days ago",
+                    "real_id": 3,
+                    "deleted_at": null
+                }
+            },
+            "formula": {
+                "data": {
+                    "object": "Formula",
+                    "id": "bml0wd39b5pkznag",
+                    "name": "公式0",
+                    "content": [
+                        {
+                            "name": "test",
+                            "type": 0,
+                            "value": 2
+                        }
+                    ],
+                    "images": "http://api.apiato.test/storage/image/2019-03-12/NGp8CE1YDopgZxje4pLcyxJMO9b1MfmLTSqWX3qA.jpeg",
+                    "purchase_advice": "dsfasdf",
+                    "created_at": {
+                        "date": "2019-03-14 17:21:04.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "updated_at": {
+                        "date": "2019-03-14 17:21:04.000000",
+                        "timezone_type": 3,
+                        "timezone": "PRC"
+                    },
+                    "real_id": 3,
+                    "type": 0,
+                    "is_preset": true,
+                    "status": 1,
+                    "usage": 0
+                }
+            }
+        }
+    ],
+    "meta": {
+        "include": [
+            "company",
+            "product",
+            "sender",
+            "receiver",
+            "formula"
+        ],
+        "custom": [],
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
+    }
+}
+```
+
+## 公式计算
+
+### 地址：/v1/client/formulas/{ID}/calculate
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| user_input | array | required | 用户输入 |
+
+**说明：将公式解析出来后，按顺序将用户输入的值放到user_input数组中，如果是有预设值的，就将预设值对应的value放到数组中；例如一个公式需要用户输入一个数字，从2个可选值A=>1B=>2选择一个，那么user_input应该为`[22,2]`**
+
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "status_code": 200,
+    "result": {
+        "business_code": 9527,
+        "data": {
+            "formula_result": "5.00",
+            "recommend": [
+                {
+                    "formula_no": "FN20190321000006DV",
+                    "images": "http://api.apiato.test/storage/image/2019-03-12/NGp8CE1YDopgZxje4pLcyxJMO9b1MfmLTSqWX3qA.jpeg",
+                    "purchase_advice": "dsfdg3252352asdf",
+                    "formula_result": "5.00",
+                    "formula_unit": {
+                        "name_cn": "重",
+                        "name_en": "kg"
+                    },
+                    "company_name": "信息科技公司"
+                }
+            ]
+        }
+    }
+}
+```
+
+上面由系统公式创建而来的公式，计算结果包含了recommend字段，是查找到的数据，可能有也可能没有
