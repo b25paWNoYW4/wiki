@@ -32,6 +32,35 @@
 
 **说明：is_merchant表示用户身份，false为普通用户，true为商户**
 
+## 图片上传接口
+
+### 地址：/v1/upload/image
+
+**请求方式：POST**
+
+**需授权：否**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| file | file | required | 图片 |
+| editor | int | nullable,in:0,1 | 是否editor |
+
+**当传editor=1时，直接返回图片永久保存地址，其它情况返回的地址是暂时的**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "status_code": 200,
+    "result": {
+        "business_code": 9527,
+        "data": "http://api.apiato.test/storage/tmp/2019-03-13/Yq45wsr9VQAZxHhBD8wM3XueHzSKgX0bvSexK1fP.jpeg"
+    }
+}
+```
+
 ## 申请成为商户
 
 ### 地址：/v1/client/companies/verify
