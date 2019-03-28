@@ -142,7 +142,9 @@
 4. limit: 当limit为0时，不分页返回所有数据
 
 **Example-Response:**
-`{
+
+```json
+{
     "data": [
         {
             "object": "Product",
@@ -199,6 +201,89 @@
             "links": []
         }
     }
-}`
+}
+```
 
+## 分类搜索
+
+### 地址：/v1/client/categories
+
+接口默认返回所有一级分类数据，include=children返回每个一级分类的子分类
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | children | 一级分类的子分类 |
+| search | name,children.name | 分类名称，二级分类的名称 |
+| searchFields | name=>'like',children.name=>'=' | 分类名称，模糊查询；二级分类的分类名称，模糊查询 |
+
+**Example-Response:**
+```json
+{
+    "data": [        
+        {
+            "object": "Category",
+            "id": "bml0wd39b5pkznag",
+            "name": "大汽车",
+            "desc": "逻辑代数录放第三方机",
+            "order": 1,
+            "created_at": {
+                "date": "2019-03-06 10:20:05.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-06 10:20:05.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 3,
+            "status": 1,
+            "creator": "平台添加",
+            "children": {
+                "data": [
+                    {
+                        "object": "Category",
+                        "id": "dqb9073ap3ekzgrm",
+                        "name": "范德萨",
+                        "desc": "123",
+                        "order": 23,
+                        "created_at": {
+                            "date": "2019-03-07 03:14:30.000000",
+                            "timezone_type": 3,
+                            "timezone": "PRC"
+                        },
+                        "updated_at": {
+                            "date": "2019-03-14 10:42:30.000000",
+                            "timezone_type": 3,
+                            "timezone": "PRC"
+                        },
+                        "real_id": 5,
+                        "status": 1,
+                        "creator": "平台添加"
+                    }
+                ]
+            }
+        },
+    "meta": {
+        "include": [
+            "children"
+        ],
+        "custom": [],
+        "pagination": {
+            "total": 4,
+            "count": 4,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
+    }
+}
+```
 
