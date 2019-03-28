@@ -142,8 +142,7 @@
 4. limit: 当limit为0时，不分页返回所有数据
 
 **Example-Response:**
-```json
-{
+`{
     "data": [
         {
             "object": "Product",
@@ -200,6 +199,6 @@
             "links": []
         }
     }
-}
-```
+}`
+
 
