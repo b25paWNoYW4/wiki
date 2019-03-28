@@ -120,6 +120,8 @@
 
 **分类id只能为二级分类的id**
 
+<hl>
+
 #### 公式格式
 
 ##### 公式介绍
@@ -163,6 +165,7 @@
  [{"type": 0, "value": 4}, {"name": "test", "type": 2, "operator": "+"}, {"name": "test1", "type": 1, "unit": 2, "value_type": 1, value:6}]
  ```
  即预设值类型的参数不需要提供可选参数列表`optional_list`,只需要提供`value`
+ <hl>
 
 **Example-Response:**
 ```json
