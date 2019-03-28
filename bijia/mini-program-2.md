@@ -311,3 +311,25 @@
 
 **Example-Response:**
 返回示例略，类似上面的创建自用公式
+
+## 获取自己创建的自用公式
+
+### 地址：/v1/client/user-formulas
+
+示例请求：
+
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | category,product,unit,company | 公式所属分类；公式所属产品；公式计算结果单位；公式所属公司 |
+| search | name,category.name,product.name,company.name | 公式名称，分类名称，产品名称，公司名称，是否平台预设公式 |
+| searchFields | name => 'like',category.name => 'like', company.name => 'like',product.name => 'like' | 公式、分类、产品、公司名称，模糊查询； |
+
+**Example-Response:**
+略，和搜索公式类似
