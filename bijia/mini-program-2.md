@@ -192,7 +192,7 @@
 
      2. 预设值类型参数: 预设值参数是公式创建者预先创建的预设值系列，用户在计算公式时，只能在预设值中选择其中一个;同样需要定义其单位属性、说明属性；示例：`{type:1,value_type:1,unit:2,name:"xxx的长度",optional_list:[{name:"高级",value:10},{name:"中级",value:7}]}` ，optional里定义了可选预设值，每一个可选的预设值由两个属性：name和value，name即可选预设值的说明或名称，value即预设值对应的数值，同样可以是整数和小数
 
-     3. 公式类型参数： 公式类型参数示例 `{type:1,value_type:2,unit:3,name:"yy原料",formula:2}` 这里面的formula是引用的公式，称为客户公式，对应的值是客户公式对应的id，但这种公式和现在讲的公式不同，是一种特殊的公式，下面会讲。
+     3. 公式类型参数： 公式类型参数示例 `{type:1,value_type:2,unit:3,name:"yy原料",formula:2,default_value:22}` 这里面的formula是引用的公式，称为客户公式，对应的值是客户公式对应的id，default_value是该公式参数的默认值，在公式不可用时默认调取；但这种公式和现在讲的公式不同，是一种特殊的公式，下面会讲。
 
  
  一个简单的完整公式的数据：
@@ -333,3 +333,23 @@
 
 **Example-Response:**
 略，和搜索公式类似
+
+## 删除公式（自用和客户公式）
+
+### 地址：/v1/client/formulas/`{`ID`}`
+
+**请求方式：DELETE**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| id | string | required | 公式ID |
+
+**UrlParameter:ID 为待删除公式的id**
+**分类id只能为二级分类的id**
+
+**Example-Response:**
+略
