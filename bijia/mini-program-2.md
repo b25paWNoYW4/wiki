@@ -198,7 +198,7 @@
  一个简单的完整公式的数据：
 
  ```
- [{"type": 0, "value": 4}, {"name": "test", "type": 2, "operator": "+"}, {"name": "test1", "type": 1, "unit": 2, "value_type": 0}]
+ [{"type": 0, "value": 4}, {"type": 2, "operator": "+"}, {"name": "test1", "type": 1, "unit": 2, "value_type": 0}]
  ```
  
 ### 客户公式
@@ -206,7 +206,7 @@
  客户公式和上面的公式差不多，区别在于客户公式没有非预设值类型的参数，且预设值类型的参数的表示和上面的有出入，示例：
 
  ```
- [{"type": 0, "value": 4}, {"name": "test", "type": 2, "operator": "+"}, {"name": "test1", "type": 1, "unit": 2, "value_type": 1, value:6}]
+ [{"type": 0, "value": 4}, {"type": 2, "operator": "+"}, {"name": "test1", "type": 1, "unit": 2, "value_type": 1, value:6}]
  ```
  即预设值类型的参数不需要提供可选参数列表`optional_list`,只需要提供`value`
 
