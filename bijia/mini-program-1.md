@@ -61,6 +61,58 @@
 }
 ```
 
+## 更新用户信息
+
+### 地址：/v1/client/mini-program/user-profile
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| nick_name | string | nullable | 微信昵称 |
+| avatar_url | url | nullable | 微信头像 |
+| gender | integer,in:0,1,2 | nullable | 用户性别 |
+
+*这里的用户信息是调取wx.getUserInfo 获得的*
+
+**Example-Response:**
+```json
+{
+    "data": {
+        "object": "User",
+        "id": "bml0wd39b5pkznag",
+        "name": "1d23aa",
+        "email": "asdfsdf",
+        "confirmed": false,
+        "social_nickname": "prettydog",
+        "gender": "2",
+        "social_avatar": "http://www.baidu.com",
+        "created_at": {
+            "date": "2019-03-17 17:34:09.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "updated_at": {
+            "date": "2019-04-03 13:55:36.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "readable_created_at": "2 weeks ago",
+        "readable_updated_at": "1 second ago"
+    },
+    "meta": {
+        "include": [
+            "roles"
+        ],
+        "custom": []
+    }
+}
+```
+
 ## 申请成为商户
 
 ### 地址：/v1/client/companies/verify
