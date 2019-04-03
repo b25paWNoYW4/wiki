@@ -398,7 +398,7 @@
 **Example-Response:**
 略
 
-# 比价小程序-小程序端-doc2-分组部分
+# 分组部分
 
 ## 新增分组
 
@@ -611,3 +611,92 @@
 
 **Example-Response:**
 略，参考上面的
+
+# 联系人部分
+
+## 移动联系人到新分组
+
+### 地址：/v1/client/contacts/`{`ID`}`/move
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| ID | string | required | 联系人的id |
+| to_group_id | string | required | 目标分组的id |
+
+**只能移动到相同类型的分组，供应商的分组内的联系人，不能移动到客户的联系人分组里**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "status_code": 200,
+    "result": {
+        "business_code": 9527,
+        "message": "操作成功"
+    }
+}
+```
+
+## 为客户提供公式
+
+### 地址：/v1/client/contacts/`{`ID`}`/set-formulas
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| ID | string | required | 联系人的id |
+| formula_id | string | required | 提供的公式的id |
+
+**只能提供给客户公式，且公式只能是自己创建的客户公式**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "status_code": 200,
+    "result": {
+        "business_code": 9527,
+        "message": "操作成功"
+    }
+}
+```
+
+## 取消给客户提供公式
+
+### 地址：/v1/client/contacts/`{`ID`}`/formula-revoke
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| ID | string | required | 联系人的id |
+| formula_id | string | required | 提供的公式的id |
+
+**只能提供给客户公式，且公式只能是自己已提供给该用户的客户公式**
+
+**Example-Response:**
+```json
+{
+    "status": "success",
+    "status_code": 200,
+    "result": {
+        "business_code": 9527,
+        "message": "操作成功"
+    }
+}
+```
