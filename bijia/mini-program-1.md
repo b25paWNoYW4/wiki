@@ -79,7 +79,7 @@
 | ------ | ------ | ------ | ------ |
 | name | string | required | 公司名称 |
 | business | string | required,max:50 | 主营范围 |
-| lega_person | string | required,between:2,10 | 公司法人 |
+| legal_person | string | required,between:2,10 | 公司法人 |
 | tel | string | required | 联系电话 |
 | address | string | required | 公司地址 |
 | company_desc | string | required | 公司介绍 |
