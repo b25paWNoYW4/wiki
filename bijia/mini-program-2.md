@@ -1,7 +1,7 @@
 <!-- TITLE: Mini Program 2 -->
 <!-- SUBTITLE: A quick summary of Mini Program 2 -->
 
-# 比价小程序-小程序端-doc2
+# 比价小程序-小程序端-doc2-公式部分
 
 ## 新增分类
 
@@ -397,3 +397,217 @@
 
 **Example-Response:**
 略
+
+# 比价小程序-小程序端-doc2-分组部分
+
+## 新增分组
+
+### 地址：/v1/client/groups
+
+**请求方式：POST**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| name | string | required | 分组名称 |
+| type | integer | required | 分组类型，供应商分组0，客户分组1 |
+
+**type一定要传，创建供应商下的分组type=0,客服分组为1**
+
+**Example-Response:**
+```json
+{
+    "data": {
+        "object": "Group",
+        "id": "bml0wd39b5pkznag",
+        "name": "大客户",
+        "type": "1",
+        "is_default": null,
+        "created_at": {
+            "date": "2019-03-20 16:53:03.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "updated_at": {
+            "date": "2019-03-20 16:53:03.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "real_id": 3
+    },
+    "meta": {
+        "include": [
+            "contacts"
+        ],
+        "custom": []
+    }
+}
+```
+
+## 修改分组
+
+### 地址：/v1/client/groups/`{`ID`}`
+
+**请求方式：PATCH**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| ID | string | required | 分组ID |
+| name | string | required | 分组名称 |
+
+**只能修改分组名称**
+
+**Example-Response:**
+```json
+{
+    "data": {
+        "object": "Group",
+        "id": "bml0wd39b5pkznag",
+        "name": "大客户会话",
+        "type": 1,
+        "is_default": false,
+        "created_at": {
+            "date": "2019-03-20 16:53:03.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "updated_at": {
+            "date": "2019-03-20 17:03:15.000000",
+            "timezone_type": 3,
+            "timezone": "PRC"
+        },
+        "real_id": 3
+    },
+    "meta": {
+        "include": [
+            "contacts"
+        ],
+        "custom": []
+    }
+}
+```
+
+## 删除分组
+
+### 地址：/v1/client/groups/`{`ID`}`
+
+**请求方式：DELETE**
+
+**需授权：是**
+
+**Parameter:**
+
+| Parameter | Type | Status | Description |
+| ------ | ------ | ------ | ------ |
+| ID | string | required | 分组ID |
+
+**只能修改分组名称**
+
+**Example-Response:**
+204 no content
+
+## 获取供应商分组
+
+### 地址：/v1/client/supplier-groups
+
+
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | contact | 分组对应的联系人 |
+
+
+**Example-Response:**
+```json
+{
+    "data": [
+        {
+            "object": "Group",
+            "id": "qnwmkv5704blag6r",
+            "name": "默认分组",
+            "is_default": true,
+            "created_at": {
+                "date": "2019-03-11 18:01:09.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "updated_at": {
+                "date": "2019-03-11 18:01:10.000000",
+                "timezone_type": 3,
+                "timezone": "PRC"
+            },
+            "real_id": 1,
+            "contacts": {
+                "data": [
+                    {
+                        "object": "Contact",
+                        "id": "qnwmkv5704blag6r",
+                        "company_name": "信息科技公司",
+                        "contact_origin_name": "Super Admin",
+                        "contact_name": "松岛枫",
+                        "contact_tel": "661",
+                        "created_at": {
+                            "date": "2019-03-11 18:02:25.000000",
+                            "timezone_type": 3,
+                            "timezone": "PRC"
+                        },
+                        "updated_at": {
+                            "date": "2019-03-11 18:02:26.000000",
+                            "timezone_type": 3,
+                            "timezone": "PRC"
+                        },
+                        "real_id": 1
+                    }
+                ]
+            }
+        }
+    ],
+    "meta": {
+        "include": [
+            "contacts"
+        ],
+        "custom": [],
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
+    }
+}
+```
+
+## 获取客户分组
+
+### 地址：/v1/client/customer-groups
+
+
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | contact | 分组对应的联系人 |
+
+
+**Example-Response:**
+略，参考上面的
