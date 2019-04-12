@@ -790,6 +790,7 @@
 | contact_name | string | required | 姓名 |
 | contact_tel | string | required | 联系方式 |
 | contact_company | string | required | 公司名称 |
+| need_invoice | boolean | required | 是否需要开票 |
 
 
 **Example-Response:**
