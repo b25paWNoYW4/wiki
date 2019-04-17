@@ -378,6 +378,46 @@
 **Example-Response:**
 略，和搜索公式类似
 
+## 获取提供给指定客户联系人的公式(new)
+
+### 地址：/v1/client/contacts/`{`id`}`/formulas-to-customers
+
+
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | category,product,unit,company | 公式所属分类；公式所属产品；公式计算结果单位；公式所属公司 |
+| id | 指定客户联系人的id，必填 | 指定客户联系人的id |
+
+**Example-Response:**
+略，和搜索公式类似
+
+## 获取指定供应商联系人提供的公式(new)
+
+### 地址：/v1/client/contacts/`{`id`}`/formulas-from-suppliers
+
+
+
+**请求方式：GET**
+
+**需授权：是**
+
+**Parameter:**
+
+| Query Parameter | Optional Values | Description |
+| ------ | ------ | ------ |
+| include | category,product,unit,company | 公式所属分类；公式所属产品；公式计算结果单位；公式所属公司 |
+| id | 指定供应商联系人的id，必填 | 指定供应商联系人的id |
+
+**Example-Response:**
+略，和搜索公式类似
+
 ## 删除公式（自用和客户公式）
 
 ### 地址：/v1/client/formulas/`{`ID`}`
